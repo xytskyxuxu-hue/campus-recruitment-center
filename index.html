@@ -143,6 +143,116 @@
     padding: 24px 40px;
   }
 
+  /* ===== OVERVIEW PANEL ===== */
+  .overview-panel {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    color: white;
+    box-shadow: var(--shadow);
+  }
+  .overview-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  .overview-icon { font-size: 20px; }
+  .overview-title { font-size: 16px; font-weight: 600; }
+  .overview-filter {
+    margin-left: auto;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  .overview-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .overview-item {
+    background: rgba(255,255,255,0.15);
+    padding: 12px 16px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+  }
+  .overview-item-label {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-bottom: 4px;
+  }
+  .overview-item-value {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .overview-item-desc {
+    font-size: 11px;
+    opacity: 0.8;
+    margin-top: 4px;
+  }
+  .overview-insight {
+    grid-column: 1 / -1;
+    background: rgba(255,255,255,0.1);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ===== STRATEGY PANEL ===== */
+  .strategy-panel {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .strategy-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-light);
+  }
+  .strategy-icon { font-size: 20px; }
+  .strategy-title { font-size: 16px; font-weight: 600; color: var(--text); }
+  .strategy-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+  }
+  .strategy-section {
+    background: #f8f9ff;
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+  }
+  .strategy-section h4 {
+    font-size: 14px;
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .strategy-section ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .strategy-section li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .strategy-section li strong {
+    color: var(--text);
+  }
+
   /* ===== FILTERS ===== */
   .filter-row {
     display: flex;
@@ -573,6 +683,55 @@
 <!-- MAIN -->
 <div class="main">
 
+  <!-- 信息概览面板 -->
+  <div class="overview-panel" id="overviewPanel">
+    <div class="overview-header">
+      <span class="overview-icon">📊</span>
+      <span class="overview-title">资讯概览</span>
+      <span class="overview-filter" id="overviewFilter">全部类型</span>
+    </div>
+    <div class="overview-content" id="overviewContent">
+      <!-- 动态生成概览内容 -->
+    </div>
+  </div>
+
+  <!-- 人才策略分析面板 -->
+  <div class="strategy-panel" id="strategyPanel">
+    <div class="strategy-header">
+      <span class="strategy-icon">🎯</span>
+      <span class="strategy-title">科技大厂人才吸引策略分析</span>
+    </div>
+    <div class="strategy-content">
+      <div class="strategy-section">
+        <h4>🏢 头部大厂（字节、阿里、腾讯、百度、华为）</h4>
+        <ul>
+          <li><strong>顶尖人才计划：</strong>设立专项计划（如字节Seed、阿里青云、华为天才少年），年薪50-200万+，配备独立科研资源</li>
+          <li><strong>校企合作深度化：</strong>与顶尖高校共建联合实验室，提供千万级经费，定向培养博士/硕士</li>
+          <li><strong>全球布局：</strong>在新加坡、美国、欧洲设立研究院，吸引海外顶尖华人科学家回流</li>
+          <li><strong>竞赛直通车：</strong>赞助ACM-ICPC、Google Code Jam等顶级赛事，获奖者享面试绿色通道</li>
+        </ul>
+      </div>
+      <div class="strategy-section">
+        <h4>🚀 中型AI公司（科大讯飞、快手、美团、京东、小米）</h4>
+        <ul>
+          <li><strong>垂直领域深耕：</strong>聚焦特定赛道（如讯飞语音、快手视频生成、美团无人配送），成为细分方向首选雇主</li>
+          <li><strong>股权激励：</strong>相比大厂更慷慨的期权/股票配比，吸引追求高成长的人才</li>
+          <li><strong>技术影响力：</strong>通过开源项目、技术博客建立社区影响力，吸引志同道合者</li>
+          <li><strong>灵活机制：</strong>更扁平的组织架构，新人更快获得核心项目机会</li>
+        </ul>
+      </div>
+      <div class="strategy-section">
+        <h4>🌍 国际巨头（Google、Meta、Microsoft、OpenAI、NVIDIA）</h4>
+        <ul>
+          <li><strong>学术声誉：</strong>顶级会议论文发表量、研究奖学金项目，吸引学术型人才</li>
+          <li><strong>全球化薪酬：</strong>美元计价薪酬+全球轮岗机会，对顶尖人才极具吸引力</li>
+          <li><strong>技术基础设施：</strong>提供业界最顶尖的算力资源（如TPU、A100/H100集群）</li>
+          <li><strong>开放文化：</strong>论文发表自由、开源贡献认可，吸引研究导向型人才</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <!-- FILTER ROW -->
   <div class="filter-row">
     <div class="search-box">
@@ -862,7 +1021,7 @@ const SEED_DATA = [
   // =============================
   { id:'comp001', title:'ACM-ICPC 2026 World Finals（珠海）', type:'竞赛', company:'ACM/ICPC', link:'https://icpc.global', summary:'2026年国际大学生程序设计竞赛世界总决赛将在珠海举办，来自全球119个国家3000+支队伍参赛，字节跳动、华为、腾讯均为顶级赞助商', infoDate:'2026-04-01', dataDate:'2026-04-03', source:'ACM官网', isNew:false },
   { id:'comp002', title:'Google Code Jam 2026 全球编程赛', type:'竞赛', company:'Google', link:'https://codingcompetitions.withgoogle.com', summary:'Google年度旗舰算法编程赛，全球50万+参赛者，决赛选手直通Google招聘绿色通道，奖金最高1.5万美元', infoDate:'2026-02-15', dataDate:'2026-02-17', source:'Google官网', isNew:false },
-  { id:'comp003', title:'Meta Hacker Cup 2026', type:'竞赛', company:'Meta', link:'https://www.facebook.com/codingcompetitions/hacker-cup', summary:'Meta年度编程挑战赛，2026年增设AI辅助编程赛道，冠军奖金2万美元并获Meta实习/全职直通资格', infoDate:'2026-03-05', dataDate:'2026-03-07', source:'Meta官网', isNew:false },
+  { id:'comp003', title:'Meta Hacker Cup 2026', type:'竞赛', company:'Meta', link:'https://www.facebook.com/codingcompetitions', summary:'Meta年度编程挑战赛，2026年增设AI辅助编程赛道，冠军奖金2万美元并获Meta实习/全职直通资格', infoDate:'2026-03-05', dataDate:'2026-03-07', source:'Meta官网', isNew:false },
   { id:'comp004', title:'华为"开发者大赛"2026 AI赛道', type:'竞赛', company:'华为', link:'https://developer.huawei.com/consumer/cn/activity/devContest', summary:'华为开发者大赛AI创新赛道，聚焦昇腾算子优化与鸿蒙AI应用，总奖金500万元，冠军享天才少年面试绿色通道', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'华为开发者官网', isNew:false },
   { id:'comp005', title:'字节跳动"青训营"算法挑战赛2026', type:'竞赛', company:'字节跳动', link:'https://juejin.cn/bytedance-campus', summary:'字节2026届青训营算法挑战赛，获奖者享实习offer快通道，历届冠军薪酬普遍在50万以上', infoDate:'2026-01-10', dataDate:'2026-01-12', source:'掘金官网', isNew:false },
   { id:'comp006', title:'阿里"天池"大数据竞赛2026春季赛', type:'竞赛', company:'阿里巴巴', link:'https://tianchi.aliyun.com', summary:'天池平台2026年春季主题赛聚焦大模型推理效率优化，奖金总池200万元，前三名享阿里内推', infoDate:'2026-04-05', dataDate:'2026-04-07', source:'天池官网', isNew:true },
@@ -883,7 +1042,7 @@ const SEED_DATA = [
   { id:'conf002', title:'ICML 2026 大会公告（维也纳）', type:'大会', company:'IMLS', link:'https://icml.cc/Conferences/2026', summary:'ICML 2026将于维也纳举办，论文提交截止2026年2月，国内大厂已组织团队备稿，阿里达摩院预计投稿超50篇', infoDate:'2026-01-08', dataDate:'2026-01-10', source:'ICML官网', isNew:false },
   { id:'conf003', title:'ACL 2026 大会（曼谷）', type:'大会', company:'ACL', link:'https://2026.aclweb.org', summary:'ACL 2026 Findings录用论文揭晓，百度、阿里、华为均有多篇论文入选，NLP领域大模型评测成核心议题', infoDate:'2026-04-10', dataDate:'2026-04-12', source:'ACL官网', isNew:true },
   { id:'conf004', title:'CVPR 2026 大会（西雅图）', type:'大会', company:'IEEE/CVF', link:'https://cvpr.thecvf.com/Conferences/2026', summary:'CVPR 2026投稿创历史新高达19000+篇，录取2500篇；旷视、字节跳动、腾讯优图等国内团队录用数居全球前列', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'CVPR官网', isNew:false },
-  { id:'conf005', title:'ICLR 2026 大会（新加坡）', type:'大会', company:'ICLR基金会', link:'https://iclr.cc/Conferences/2026', summary:'ICLR 2026设立大模型可信AI专题Workshop，谷歌DeepMind、OpenAI各派出50人团队，字节研究院获3篇Oral', infoDate:'2026-04-25', dataDate:'2026-04-15', source:'ICLR官网', isNew:true },
+  { id:'conf005', title:'ICLR 2026 大会（巴西里约热内卢）', type:'大会', company:'ICLR基金会', link:'https://iclr.cc/Conferences/2026', summary:'ICLR 2026将于4月24-5月1日在巴西里约热内卢举办，设立大模型可信AI专题Workshop，谷歌DeepMind、OpenAI各派出50人团队，字节研究院获3篇Oral', infoDate:'2026-04-25', dataDate:'2026-04-15', source:'ICLR官网', isNew:true },
   { id:'conf006', title:'GTC 2026 NVIDIA GPU技术大会（圣何塞）', type:'大会', company:'NVIDIA', link:'https://www.nvidia.com/gtc', summary:'NVIDIA GTC 2026 Jensen Huang主题演讲发布Blackwell Ultra架构，国内科技公司集体参会，华为、百度、腾讯均设展台', infoDate:'2026-03-17', dataDate:'2026-03-18', source:'NVIDIA官网', isNew:false },
   { id:'conf007', title:'Google I/O 2026 开发者大会', type:'大会', company:'Google', link:'https://io.google/2026', summary:'Google I/O 2026重点发布Gemini Ultra 2.0与Project Astra实体机器人进展，国内大厂开发者团队组团参会学习', infoDate:'2026-05-14', dataDate:'2026-04-14', source:'Google官网', isNew:true },
   { id:'conf008', title:'微软Build 2026 开发者大会', type:'大会', company:'Microsoft', link:'https://mybuild.microsoft.com', summary:'Microsoft Build 2026聚焦Copilot+PC与企业AI Agent，宣布与中国高校扩大合作，加大Azure学术算力资助', infoDate:'2026-05-19', dataDate:'2026-04-14', source:'微软官网', isNew:true },
@@ -1091,8 +1250,121 @@ function applyFilters() {
   renderTable();
   renderPagination();
   document.getElementById('tableCount').textContent = filteredData.length;
+  updateOverview();
 }
 
+// =====================================================
+// OVERVIEW PANEL
+// =====================================================
+function updateOverview() {
+  const panel = document.getElementById('overviewContent');
+  const filterLabel = document.getElementById('overviewFilter');
+  
+  // 更新筛选标签
+  filterLabel.textContent = currentType === 'all' ? '全部类型' : currentType;
+  
+  // 统计数据
+  const totalCount = filteredData.length;
+  const companyCount = new Set(filteredData.map(d => d.company)).size;
+  const newCount = filteredData.filter(d => d.isNew).length;
+  
+  // 按类型统计
+  const typeStats = {};
+  filteredData.forEach(d => {
+    typeStats[d.type] = (typeStats[d.type] || 0) + 1;
+  });
+  
+  // 按公司统计（Top 5）
+  const companyStats = {};
+  filteredData.forEach(d => {
+    companyStats[d.company] = (companyStats[d.company] || 0) + 1;
+  });
+  const topCompanies = Object.entries(companyStats)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5);
+  
+  // 生成洞察文本
+  let insightText = '';
+  if (currentType === 'all') {
+    insightText = `当前共收录${totalCount}条人才资讯，覆盖${companyCount}家科技大厂。`;
+    if (topCompanies.length > 0) {
+      insightText += `其中${topCompanies[0][0]}资讯最多（${topCompanies[0][1]}条）。`;
+    }
+    insightText += '头部大厂主要通过顶尖人才计划、校企合作、全球招聘等方式吸引人才；中型AI公司则聚焦垂直领域，以股权激励和技术影响力取胜。';
+  } else {
+    const typeName = currentType;
+    insightText = `【${typeName}】类别共${totalCount}条资讯。`;
+    
+    switch(typeName) {
+      case '顶尖人才计划':
+        insightText += '头部大厂设立专项计划招募顶尖人才，年薪普遍50万-200万+，配备独立科研资源和导师团队。';
+        break;
+      case '校园招聘':
+        insightText += '2026届秋招已全面启动，技术类岗位需求旺盛，AI/大模型方向成为核心招聘领域。';
+        break;
+      case '实习招募':
+        insightText += '暑期实习和日常实习同步开放，转正率高，是进入大厂的重要通道。';
+        break;
+      case '校企合作':
+        insightText += '大厂与顶尖高校深度合作，共建联合实验室、定向培养人才，形成产学研闭环。';
+        break;
+      case '人才异动':
+        insightText += 'AI大模型领域人才流动频繁，国内外顶尖科学家在头部公司间流动加速。';
+        break;
+      case '竞赛':
+        insightText += '顶级编程竞赛和AI挑战赛是人才选拔的重要渠道，获奖者可获面试直通资格。';
+        break;
+      case '大会':
+        insightText += '学术会议和行业大会是展示技术实力、吸引人才的重要平台，大厂积极参与并设立招聘展区。';
+        break;
+      default:
+        insightText += '该类别资讯反映了科技大厂在人才吸引方面的多元化策略。';
+    }
+  }
+  
+  // 构建HTML
+  let html = `
+    <div class="overview-item">
+      <div class="overview-item-label">资讯总数</div>
+      <div class="overview-item-value">${totalCount}</div>
+      <div class="overview-item-desc">条相关资讯</div>
+    </div>
+    <div class="overview-item">
+      <div class="overview-item-label">覆盖公司</div>
+      <div class="overview-item-value">${companyCount}</div>
+      <div class="overview-item-desc">家科技大厂</div>
+    </div>
+    <div class="overview-item">
+      <div class="overview-item-label">最新资讯</div>
+      <div class="overview-item-value">${newCount}</div>
+      <div class="overview-item-desc">条本周更新</div>
+    </div>
+  `;
+  
+  // 添加类型分布
+  if (currentType === 'all' && Object.keys(typeStats).length > 0) {
+    const typeHtml = Object.entries(typeStats)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 4)
+      .map(([type, count]) => `${type}: ${count}条`)
+      .join(' · ');
+    html += `
+      <div class="overview-item" style="grid-column: span 2;">
+        <div class="overview-item-label">类型分布</div>
+        <div class="overview-item-desc" style="font-size: 12px; margin-top: 8px;">${typeHtml}</div>
+      </div>
+    `;
+  }
+  
+  // 添加洞察
+  html += `<div class="overview-insight">💡 ${insightText}</div>`;
+  
+  panel.innerHTML = html;
+}
+
+// =====================================================
+// TABLE RENDER
+// =====================================================
 function renderTable() {
   const tbody = document.getElementById('tableBody');
   const today = getTodayStr();
