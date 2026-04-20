@@ -872,7 +872,7 @@ const SEED_DATA = [
   // ——字节跳动——
   { id:'bt001', title:'字节跳动Seed 2027届大模型专项校招', type:'顶尖人才计划', company:'字节跳动', link:'https://jobs.bytedance.com/campus', summary:'全球招募顶尖AI与大模型方向应届生，年薪50万起，配备专属导师', infoDate:'2026-04-10', dataDate:'2026-04-12', source:'中关村在线', isNew:true },
   { id:'bt002', title:'字节跳动2026届秋招全球启动', type:'校园招聘', company:'字节跳动', link:'https://jobs.bytedance.com/campus', summary:'覆盖技术、产品、运营等多岗位，全球60+城市同步招募', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'官网', isNew:false },
-  { id:'bt003', title:'字节跳动"筋斗云"高校人才合作计划', type:'校企合作', company:'字节跳动', link:'https://edu.bytedance.com', summary:'与清华、北大等50所高校深度合作，联合培养AI人才', infoDate:'2026-02-15', dataDate:'2026-02-18', source:'字节跳动教育官网', isNew:false },
+  
   { id:'bt004', title:'字节跳动TikTok海外实习生项目2026', type:'实习招募', company:'字节跳动', link:'https://jobs.bytedance.com/campus', summary:'面向全球顶尖高校，提供新加坡/美国/英国实习机会，月薪3000美元起', infoDate:'2026-04-05', dataDate:'2026-04-08', source:'字节跳动招聘官网', isNew:true },
   { id:'bt005', title:'字节跳动Research Lab负责人空降', type:'人才异动', company:'字节跳动', link:'https://techcrunch.com', summary:'前Google Brain高级研究员加入字节跳动担任Research负责人', infoDate:'2026-03-28', dataDate:'2026-03-30', source:'TechCrunch', isNew:false },
 
@@ -880,7 +880,7 @@ const SEED_DATA = [
   { id:'al001', title:'阿里巴巴"青云计划"2027届启动', type:'顶尖人才计划', company:'阿里巴巴', link:'https://campus.alibaba.com', summary:'面向全球顶尖高校博士生和高潜本硕，探索性研究项目，直通终面', infoDate:'2026-04-08', dataDate:'2026-04-10', source:'官网', isNew:true },
   { id:'al002', title:'阿里云2026春季实习开放申请', type:'实习招募', company:'阿里巴巴', link:'https://campus.alibaba.com/intern', summary:'云计算、AI、安全方向实习生，可转正，月薪1.5-2万', infoDate:'2026-03-15', dataDate:'2026-03-18', source:'官网', isNew:false },
   { id:'al003', title:'阿里达摩院联合高校AI攻关项目', type:'校企合作', company:'阿里巴巴', link:'https://damo.alibaba.com', summary:'达摩院与浙大、复旦等联合开展大模型基础研究，提供百万级科研经费', infoDate:'2026-02-20', dataDate:'2026-02-22', source:'阿里达摩院官网', isNew:false },
-  { id:'al004', title:'蔡崇信基金会高校奖学金2026', type:'奖学金', company:'阿里巴巴', link:'https://josephtsaifoundation.org', summary:'面向中国高校优秀计算机学生，每人10万元奖学金，无服务期绑定', infoDate:'2026-01-10', dataDate:'2026-01-12', source:'蔡崇信基金会官网', isNew:false },
+  
   { id:'al005', title:'阿里国际商业技术团队全球招募', type:'全球人才', company:'阿里巴巴', link:'https://campus.alibaba.com/global', summary:'Lazada/Trendyol/Miravia全球扩张，招募本地化技术骨干', infoDate:'2026-04-02', dataDate:'2026-04-04', source:'LinkedIn', isNew:false },
 
   // ——腾讯——
@@ -943,25 +943,24 @@ const SEED_DATA = [
   { id:'oa002', title:'OpenAI北京联络处人才布局', type:'人才异动', company:'OpenAI', link:'https://openai.com', summary:'OpenAI启动亚太区人才布局，北京/新加坡设立联络处，引进华人顶尖人才', infoDate:'2026-04-08', dataDate:'2026-04-10', source:'路透社', isNew:true },
 
   // ——Amazon——
-  { id:'am001', title:'亚马逊AWS 2026届校园实习计划', type:'实习招募', company:'Amazon', link:'https://amazon.jobs/students', summary:'全球AWS校园实习项目，提供云计算/AI方向实习及转正通道', infoDate:'2026-03-05', dataDate:'2026-03-07', source:'官网', isNew:false },
+  
 
   // ——Samsung——
-  { id:'sa001', title:'三星半导体2026全球校招', type:'校园招聘', company:'三星', link:'https://samsung.com/semiconductor/careers', summary:'芯片设计、存储技术、AI加速器方向，韩国/美国/中国同步招募', infoDate:'2026-03-22', dataDate:'2026-03-24', source:'官网', isNew:false },
+  
 
   // ——Anthropic——
   { id:'an001', title:'Anthropic AI Safety团队全球招募', type:'顶尖人才计划', company:'Anthropic', link:'https://anthropic.com/careers', summary:'Claude模型团队大规模扩张，招募顶尖研究员，年薪超过OpenAI标准', infoDate:'2026-04-09', dataDate:'2026-04-11', source:'官网', isNew:true },
 
   // ——Google DeepMind——
-  { id:'dm001', title:'Google DeepMind 2026全球研究奖学金', type:'奖学金', company:'DeepMind', link:'https://deepmind.com/research/scholarships', summary:'面向在读博士生，提供薪资外额外2万英镑奖学金支持，覆盖AI安全、强化学习、神经网络等方向', infoDate:'2026-02-15', dataDate:'2026-02-17', source:'官网', isNew:false },
+  
 
   // =============================
   // 校企合作 — 大量扩充（含往年）
   // =============================
   // 字节跳动校企合作
-  { id:'coop001', title:'字节跳动"筑梦"高校实验室项目2026', type:'校企合作', company:'字节跳动', link:'https://edu.bytedance.com/lab', summary:'与中科大、哈工大等10所高校共建AI联合实验室，提供千万级科研经费及GPU算力资源', infoDate:'2026-03-10', dataDate:'2026-03-12', source:'教育部官网', isNew:false },
-  { id:'coop002', title:'字节跳动与上交大联合培养硕博项目2025', type:'校企合作', company:'字节跳动', link:'https://edu.bytedance.com/joint', summary:'2025年签署，定向培养NLP/推荐系统方向硕博生，毕业直接进入核心业务团队', infoDate:'2025-09-15', dataDate:'2025-09-18', source:'上交大新闻网', isNew:false },
+  
 
-  { id:'coop004', title:'字节跳动与浙大"百川计划"2023', type:'校企合作', company:'字节跳动', link:'https://edu.bytedance.com', summary:'2023年启动，浙大-字节大模型方向联合研究，年投入3000万，覆盖70+名博士生', infoDate:'2023-11-08', dataDate:'2023-11-10', source:'浙大官网', isNew:false },
+  
 
   // 阿里巴巴校企合作
   { id:'coop010', title:'阿里巴巴"产学研创"联盟2026年度扩招', type:'校企合作', company:'阿里巴巴', link:'https://damo.alibaba.com/cooperation', summary:'2026年新增复旦、南大等6所高校加入联盟，覆盖量子计算、隐私计算新方向', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'官网', isNew:false },
@@ -971,14 +970,14 @@ const SEED_DATA = [
   { id:'coop014', title:'阿里菜鸟与同济大学智慧物流人才培养2022', type:'校企合作', company:'阿里巴巴', link:'https://cainiao.com/campus', summary:'2022年启动，同济大学交通工程+AI方向定向培养，提供真实物流场景数据集', infoDate:'2022-10-30', dataDate:'2022-11-01', source:'同济官网', isNew:false },
 
   // 腾讯校企合作
-  { id:'coop020', title:'腾讯"犀牛鸟"高校联合研究2026', type:'校企合作', company:'腾讯', link:'https://ur.tencent.com/xiniu', summary:'2026年资助全国50所高校科研团队，AI安全与可信AI方向新增专项资金500万', infoDate:'2026-04-01', dataDate:'2026-04-03', source:'官网', isNew:false },
+  
   { id:'coop021', title:'腾讯与香港大学AI联合实验室2025', type:'校企合作', company:'腾讯', link:'https://ai.tencent.com/hku', summary:'2025年成立腾讯-港大AI联合实验室，聚焦多模态理解与跨语言模型，年度预算2000万港元', infoDate:'2025-03-28', dataDate:'2025-03-30', source:'港大新闻', isNew:false },
   { id:'coop022', title:'腾讯游戏"全球高校联赛"校企深度合作2024', type:'校企合作', company:'腾讯', link:'https://tga.qq.com', summary:'2024年与28所顶尖游戏院校合作，共同研发游戏AI课程体系，提供实际项目实训', infoDate:'2024-08-15', dataDate:'2024-08-17', source:'游戏媒体', isNew:false },
-  { id:'coop023', title:'腾讯与武汉大学"遥感+AI"联培计划2023', type:'校企合作', company:'腾讯', link:'https://map.tencent.com/edu', summary:'2023年腾讯地图与武汉大学测绘遥感学院联合培养10名博士，应用于高精地图生产', infoDate:'2023-06-20', dataDate:'2023-06-22', source:'武大官网', isNew:false },
+  
   { id:'coop024', title:'腾讯安全与西安电子科技大学联合人才培养2022', type:'校企合作', company:'腾讯', link:'https://security.tencent.com', summary:'2022年启动，定向培育网络安全攻防人才，每年资助20名硕士生，毕业享优先offer', infoDate:'2022-09-05', dataDate:'2022-09-07', source:'西电官网', isNew:false },
 
   // 华为校企合作
-  { id:'coop030', title:'华为"昇腾AI"高校生态计划2026', type:'校企合作', company:'华为', link:'https://e.huawei.com/cn/talent/ascend', summary:'2026年扩大至300所高校，配套免费云算力资源，覆盖昇腾框架课程与科研项目', infoDate:'2026-02-28', dataDate:'2026-03-01', source:'官网', isNew:false },
+  
   { id:'coop031', title:'华为鸿蒙生态与北邮联合实验室2025', type:'校企合作', company:'华为', link:'https://developer.harmonyos.com/cn/edu', summary:'2025年成立鸿蒙-北邮智联实验室，联合培养操作系统与分布式计算方向人才', infoDate:'2025-04-20', dataDate:'2025-04-22', source:'北邮官网', isNew:false },
   { id:'coop032', title:'华为与清华"芯片卓越工程师"培养计划2024', type:'校企合作', company:'华为', link:'https://career.huawei.com/chip', summary:'2024年清华-华为芯片工程师定向培养，每期30名，覆盖VLSI设计、EDA工具全流程', infoDate:'2024-09-10', dataDate:'2024-09-12', source:'清华官网', isNew:false },
   { id:'coop033', title:'华为"智能基座"产教融合工程2023', type:'校企合作', company:'华为', link:'https://e.huawei.com/cn/talent', summary:'2023年覆盖72所高校，捐赠设备价值超10亿元，推动5G+AI课程体系建设', infoDate:'2023-08-15', dataDate:'2023-08-17', source:'教育部新闻', isNew:false },
@@ -988,8 +987,8 @@ const SEED_DATA = [
   // 百度校企合作
   { id:'coop040', title:'百度与哈工大"语言大模型"联合攻关2026', type:'校企合作', company:'百度', link:'https://ai.baidu.com/edu/hitu', summary:'2026年百度文心团队与哈工大SCIR实验室深化合作，联合投入5000万推进多语言大模型', infoDate:'2026-03-15', dataDate:'2026-03-17', source:'哈工大官网', isNew:false },
   { id:'coop041', title:'百度飞桨"产学研用"联盟高校扩容2025', type:'校企合作', company:'百度', link:'https://www.paddlepaddle.org.cn/ecosystem', summary:'2025年飞桨联盟新增60所高校，提供免费AI算力额度，支持学术成果转化', infoDate:'2025-06-20', dataDate:'2025-06-22', source:'官网', isNew:false },
-  { id:'coop042', title:'百度Apollo与同济大学智能驾驶联培2024', type:'校企合作', company:'百度', link:'https://apollo.auto/education', summary:'2024年Apollo开放平台与同济大学联合培养自动驾驶方向硕博生，提供真实测试车辆数据', infoDate:'2024-07-12', dataDate:'2024-07-14', source:'同济官网', isNew:false },
-  { id:'coop043', title:'百度"产教融合基地"覆盖百所高校2022', type:'校企合作', company:'百度', link:'https://ai.baidu.com/edu', summary:'2022年百度AI产教融合计划扩展至100所院校，培养AI工程师逾万名', infoDate:'2022-11-05', dataDate:'2022-11-07', source:'教育媒体', isNew:false },
+  
+  { id:'coop043', title:'百度"产教融合基地"覆盖百所高校2022', type:'校企合作', company:'百度', link:'https://ai.baidu.com/', summary:'2022年百度AI产教融合计划扩展至100所院校，培养AI工程师逾万名', infoDate:'2022-11-05', dataDate:'2022-11-07', source:'教育媒体', isNew:false },
 
   // 微软校企合作
   { id:'coop050', title:'微软"AI for Good"高校科研资助2026', type:'校企合作', company:'Microsoft', link:'https://www.microsoft.com/en-us/ai/ai-for-good', summary:'2026年资助全球50所高校开展AI向善科研项目，每项目最高30万美元资金及Azure算力', infoDate:'2026-01-20', dataDate:'2026-01-22', source:'官网', isNew:false },
@@ -999,19 +998,14 @@ const SEED_DATA = [
 
   // Google校企合作
   { id:'coop060', title:'Google "CSResearch" 中国高校资助计划2026', type:'校企合作', company:'Google', link:'https://research.google/outreach', summary:'2026年Google面向中国高校CS方向研究生发放科研资助，每人2-5万美元', infoDate:'2026-02-10', dataDate:'2026-02-12', source:'官网', isNew:false },
-  { id:'coop061', title:'Google与交大"机器学习"联合实验室2025', type:'校企合作', company:'Google', link:'https://research.google/teams/china', summary:'2025年Google中国研究院与上交大AI研究院成立联合实验室，聚焦生成模型与具身智能', infoDate:'2025-08-22', dataDate:'2025-08-24', source:'上交大官网', isNew:false },
+  
   { id:'coop062', title:'Google "Explore" 高校科研实习项目2024', type:'校企合作', company:'Google', link:'https://careers.google.com/students', summary:'2024年扩大Explore项目规模，面向大三以上学生，在Google本地研究院开展12周科研', infoDate:'2024-03-18', dataDate:'2024-03-20', source:'官网', isNew:false },
 
   // Meta校企合作
-  { id:'coop070', title:'Meta "Research Credits"高校算力资助2026', type:'校企合作', company:'Meta', link:'https://research.facebook.com/research-credits', summary:'2026年Meta向全球高校AI研究团队免费提供GPU算力资源，支持1000+科研项目', infoDate:'2026-01-15', dataDate:'2026-01-17', source:'官网', isNew:false },
-  { id:'coop071', title:'Meta FAIR与清华大学联合研究2025', type:'校企合作', company:'Meta', link:'https://ai.meta.com/research/collaborations', summary:'2025年Meta AI研究院FAIR与清华计算机系合作，聚焦多模态推理与视觉基础模型', infoDate:'2025-05-12', dataDate:'2025-05-14', source:'清华官网', isNew:false },
-  { id:'coop072', title:'Meta与北大"下一代互联网"联培计划2023', type:'校企合作', company:'Meta', link:'https://research.facebook.com', summary:'2023年Meta北京研究院与北大合作，联合申报国家自然科学基金项目，定向培养5名博士', infoDate:'2023-10-10', dataDate:'2023-10-12', source:'北大官网', isNew:false },
+  
 
   // 科大讯飞校企合作
-  { id:'coop080', title:'科大讯飞与中科大"语音智能"联合实验室2026', type:'校企合作', company:'科大讯飞', link:'https://www.iflytek.com/iflytek-ustc', summary:'2026年持续深化讯飞-中科大战略合作，联合攻关自然语言理解与实时语音翻译', infoDate:'2026-03-05', dataDate:'2026-03-07', source:'中科大官网', isNew:false },
-  { id:'coop081', title:'科大讯飞"AI教育"校企共建课程体系2025', type:'校企合作', company:'科大讯飞', link:'https://www.iflytek.com/education', summary:'2025年与全国200所高校共建AI+教育实训课程，培养智慧教育方向产业人才', infoDate:'2025-09-01', dataDate:'2025-09-03', source:'教育媒体', isNew:false },
-  { id:'coop082', title:'科大讯飞与合肥工大医疗AI联合实验室2024', type:'校企合作', company:'科大讯飞', link:'https://medicalai.iflytek.com', summary:'2024年联合合肥工业大学建立医疗AI联合实验室，攻关智能诊断与医学影像AI', infoDate:'2024-11-20', dataDate:'2024-11-22', source:'合工大官网', isNew:false },
-  { id:'coop083', title:'科大讯飞"晨星"高校AI人才培育计划2023', type:'校企合作', company:'科大讯飞', link:'https://campus.iflytek.com/morning-star', summary:'2023年启动"晨星计划"，资助安徽省高校AI创新团队，总资助额超3000万元', infoDate:'2023-05-10', dataDate:'2023-05-12', source:'安徽省教育厅', isNew:false },
+  
 
   // 美团校企合作
   { id:'coop090', title:'美团与北航"无人机"联合研究项目2025', type:'校企合作', company:'美团', link:'https://www.meituan.com/news', summary:'2025年美团无人配送事业部与北航飞行器学院联合攻关低空飞行路径规划与AI调度', infoDate:'2025-07-15', dataDate:'2025-07-17', source:'北航官网', isNew:false },
@@ -1032,12 +1026,12 @@ const SEED_DATA = [
   // 竞赛
   // =============================
   { id:'comp001', title:'ACM-ICPC 2026 World Finals（珠海）', type:'竞赛', company:'ACM/ICPC', link:'https://icpc.global', summary:'2026年国际大学生程序设计竞赛世界总决赛将在珠海举办，来自全球119个国家3000+支队伍参赛，字节跳动、华为、腾讯均为顶级赞助商', infoDate:'2026-04-01', dataDate:'2026-04-03', source:'ACM官网', isNew:false },
-  { id:'comp002', title:'Google Code Jam 2026 全球编程赛', type:'竞赛', company:'Google', link:'https://codingcompetitions.withgoogle.com', summary:'Google年度旗舰算法编程赛，全球50万+参赛者，决赛选手直通Google招聘绿色通道，奖金最高1.5万美元', infoDate:'2026-02-15', dataDate:'2026-02-17', source:'Google官网', isNew:false },
+  
   { id:'comp003', title:'Meta Hacker Cup 2026', type:'竞赛', company:'Meta', link:'https://www.facebook.com/codingcompetitions', summary:'Meta年度编程挑战赛，2026年增设AI辅助编程赛道，冠军奖金2万美元并获Meta实习/全职直通资格', infoDate:'2026-03-05', dataDate:'2026-03-07', source:'Meta官网', isNew:false },
   { id:'comp004', title:'华为"开发者大赛"2026 AI赛道', type:'竞赛', company:'华为', link:'https://developer.huawei.com/consumer/cn/activity/devContest', summary:'华为开发者大赛AI创新赛道，聚焦昇腾算子优化与鸿蒙AI应用，总奖金500万元，冠军享天才少年面试绿色通道', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'华为开发者官网', isNew:false },
   { id:'comp005', title:'字节跳动"青训营"算法挑战赛2026', type:'竞赛', company:'字节跳动', link:'https://juejin.cn/bytedance-campus', summary:'字节2026届青训营算法挑战赛，获奖者享实习offer快通道，历届冠军薪酬普遍在50万以上', infoDate:'2026-01-10', dataDate:'2026-01-12', source:'掘金官网', isNew:false },
   { id:'comp006', title:'阿里"天池"大数据竞赛2026春季赛', type:'竞赛', company:'阿里巴巴', link:'https://tianchi.aliyun.com', summary:'天池平台2026年春季主题赛聚焦大模型推理效率优化，奖金总池200万元，前三名享阿里内推', infoDate:'2026-04-05', dataDate:'2026-04-07', source:'天池官网', isNew:true },
-  { id:'comp007', title:'腾讯"光子"游戏AI创新大赛2026', type:'竞赛', company:'腾讯', link:'https://tga.qq.com/ai-contest', summary:'腾讯光子工作室主办，面向全国高校，聚焦游戏AI与NPC智能，冠军直入腾讯游戏AI团队实习', infoDate:'2026-03-28', dataDate:'2026-03-30', source:'腾讯开发者官网', isNew:false },
+  
   { id:'comp008', title:'百度"飞桨"PaddlePaddle创新创业大赛2025', type:'竞赛', company:'百度', link:'https://aistudio.baidu.com/competition', summary:'百度AI Studio年度最大算法竞赛，2025年总奖金300万，分设大模型应用、CV、NLP、量化四赛道', infoDate:'2025-10-15', dataDate:'2025-10-17', source:'百度AI Studio', isNew:false },
   { id:'comp009', title:'Kaggle大赛 LLM科学考试挑战2025', type:'竞赛', company:'Google', link:'https://www.kaggle.com/competitions', summary:'Kaggle与多家高校联合举办LLM在科学领域推理挑战赛，奖金10万美元，吸引全球3000+团队', infoDate:'2025-09-01', dataDate:'2025-09-03', source:'Kaggle官网', isNew:false },
   { id:'comp010', title:'微软"Imagine Cup"全球学生创新大赛2026', type:'竞赛', company:'Microsoft', link:'https://imaginecup.microsoft.com', summary:'微软Imagine Cup 2026以AI+可持续发展为主题，全球约20万学生参赛，冠军获10万美元及微软加速器资源', infoDate:'2026-01-20', dataDate:'2026-01-22', source:'微软官网', isNew:false },
@@ -1045,7 +1039,7 @@ const SEED_DATA = [
   { id:'comp012', title:'"挑战杯"全国大学生科技竞赛2025决赛', type:'竞赛', company:'教育部/团中央', link:'https://www.tiaozhanbei.net', summary:'2025年"挑战杯"决赛阿里、腾讯、百度等大厂赞助AI赛道，设置百万专项奖金，获奖队享大厂直通实习', infoDate:'2025-11-05', dataDate:'2025-11-07', source:'挑战杯官网', isNew:false },
   { id:'comp013', title:'CCF大数据与计算智能大赛BDCI 2025', type:'竞赛', company:'CCF', link:'https://www.datafountain.cn/competitions', summary:'CCF年度旗舰数据竞赛，2025年由华为、京东联合赞助，总奖金500万，获奖选手享联合招聘直通', infoDate:'2025-08-20', dataDate:'2025-08-22', source:'CCF官网', isNew:false },
   { id:'comp014', title:'快手"可灵"AI视频创作挑战赛2026', type:'竞赛', company:'快手', link:'https://klingai.kuaishou.com/competition', summary:'快手可灵AI视频生成模型主题挑战赛，面向高校学生，奖金50万，优胜者享快手大模型团队实习快通道', infoDate:'2026-03-15', dataDate:'2026-03-17', source:'快手官网', isNew:false },
-  { id:'comp015', title:'Anthropic AI安全挑战赛2025', type:'竞赛', company:'Anthropic', link:'https://www.anthropic.com/research/challenge', summary:'Anthropic首届AI安全研究竞赛，面向全球顶尖高校，发现Claude关键安全漏洞可获10万美元奖励', infoDate:'2025-06-10', dataDate:'2025-06-12', source:'Anthropic官网', isNew:false },
+  
 
   // =============================
   // 大会
@@ -1064,9 +1058,9 @@ const SEED_DATA = [
   { id:'conf012', title:'KDD 2025 数据挖掘大会（巴塞罗那）', type:'大会', company:'ACM SIGKDD', link:'https://kdd.org/kdd2025', summary:'KDD 2025应用数据科学赛道阿里巴巴、京东、美团多篇工业论文获最佳论文奖，举办招聘专场活动', infoDate:'2025-08-25', dataDate:'2025-08-27', source:'KDD官网', isNew:false },
   { id:'conf013', title:'中国计算机学会ChinaSoft 2025年会', type:'大会', company:'CCF', link:'https://chinasoft.ccf.org.cn', summary:'ChinaSoft 2025在武汉举办，聚焦AI原生软件工程，科大讯飞、华为、腾讯联合举办人才供需对接论坛', infoDate:'2025-11-20', dataDate:'2025-11-22', source:'CCF官网', isNew:false },
   { id:'conf014', title:'亚马逊re:Invent 2025 全球云计算大会', type:'大会', company:'Amazon', link:'https://reinvent.awsevents.com', summary:'AWS re:Invent 2025国内企业参会团规模创新高，阿里云、腾讯云与亚马逊宣布在多模态AI领域深化技术交流合作', infoDate:'2025-12-01', dataDate:'2025-12-03', source:'AWS官网', isNew:false },
-  { id:'conf015', title:'2026硅谷全球大会暨人才论坛', type:'大会', company:'硅谷全球大会', link:'https://svglobalconf.org', summary:'2026年硅谷全球大会聚焦AI创业与全球人才流动，OpenAI、Anthropic、Google DeepMind高管发表主旨演讲，设置中美人才对接专场', infoDate:'2026-04-20', dataDate:'2026-04-15', source:'官网', isNew:true },
+  
   { id:'conf016', title:'ECCV 2026 欧洲计算机视觉大会（米兰）', type:'大会', company:'ECCV', link:'https://eccv.ecva.net/Conferences/2026', summary:'ECCV 2026投稿开放，字节跳动、商汤、旷视组织百人团队备稿，聚焦视觉大模型与自动驾驶感知方向', infoDate:'2026-03-01', dataDate:'2026-03-03', source:'ECCV官网', isNew:false },
-  { id:'conf017', title:'2025中关村论坛年会（北京）', type:'大会', company:'中关村管委会', link:'https://zgcforum.com.cn', summary:'2025中关村论坛年会在北京召开，科技部、国内外百余家科技企业参与，国内AI大模型企业集中展示最新成果，华为昇腾获最佳展台奖', infoDate:'2025-04-25', dataDate:'2025-04-27', source:'中关村官网', isNew:false },
+  
 
   // =============================
   // 今日更新 — 2026-04-19
@@ -1098,7 +1092,7 @@ const SEED_DATA = [
   // =============================
   // 今日更新 — 2026-04-17
   // =============================
-  { id:'today_0417_001', title:'字节跳动2026年AI Infra方向高潜实习生专项招募', type:'实习招募', company:'字节跳动', link:'https://jobs.bytedance.com/intern', summary:'字节跳动基础架构部面向清华、北大、CMU等顶校招募AI Infra实习生，聚焦大规模训练框架与分布式推理优化，月薪最高2.8万元，优秀者可直转全职', infoDate:'2026-04-17', dataDate:'2026-04-17', source:'官网', isNew:true },
+  { id:'today_0417_001', title:'字节跳动2026年AI Infra方向高潜实习生专项招募', type:'实习招募', company:'字节跳动', link:'https://jobs.bytedance.com/campus', summary:'字节跳动基础架构部面向清华、北大、CMU等顶校招募AI Infra实习生，聚焦大规模训练框架与分布式推理优化，月薪最高2.8万元，优秀者可直转全职', infoDate:'2026-04-17', dataDate:'2026-04-17', source:'字节跳动招聘官网', isNew:true },
   
   { id:'today_0417_003', title:'ICLR 2026大会开幕（里约热内卢）：国内AI论文数量创历史新高', type:'大会', company:'ICLR基金会', link:'https://iclr.cc/Conferences/2026', summary:'ICLR 2026（第14届国际学习表征大会）于4月23-27日在巴西里约热内卢Riocentro会议中心举办，中国机构论文录用共计620篇，字节跳动研究院以47篇居国内企业首位，阿里达摩院35篇次之，华为诺亚方舟28篇；大会设立大模型可信AIWorkshop，字节获3篇Oral论文', infoDate:'2026-04-17', dataDate:'2026-04-17', source:'ICLR官网', isNew:true },
   { id:'today_0417_004', title:'华为"天才少年"2026届入选名单公布，首次纳入量子方向', type:'顶尖人才计划', company:'华为', link:'https://career.huawei.com/genius', summary:'华为2026届"天才少年"计划正式公布入选名单，共18人入选，年薪区间90.9万至201.5万，今年首次设立量子计算专项赛道，4人来自量子方向', infoDate:'2026-04-17', dataDate:'2026-04-17', source:'官网', isNew:true },
