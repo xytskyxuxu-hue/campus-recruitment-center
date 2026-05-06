@@ -618,6 +618,119 @@
   }
   .empty-state .icon { font-size: 40px; margin-bottom: 10px; }
 
+  /* ===== WECHAT PANEL ===== */
+  .wechat-panel {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-top: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .wechat-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-light);
+  }
+  .wechat-panel-icon { font-size: 20px; }
+  .wechat-panel-title { font-size: 16px; font-weight: 600; color: var(--text); }
+  .wechat-panel-subtitle { font-size: 12px; color: var(--text-muted); margin-left: auto; }
+  .wechat-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .wechat-tab {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    background: white;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .wechat-tab:hover, .wechat-tab.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+  .wechat-category {
+    display: none;
+  }
+  .wechat-category.active {
+    display: block;
+  }
+  .wechat-category-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    padding: 6px 10px;
+    background: #f8f9fc;
+    border-radius: 6px;
+    border-left: 3px solid var(--primary);
+  }
+  .wechat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 10px;
+  }
+  .wechat-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 13px;
+    background: #f8f9fc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--text);
+    transition: all 0.2s;
+    cursor: default;
+    line-height: 1.3;
+  }
+  .wechat-chip:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(26,115,232,0.12);
+  }
+  .wechat-chip-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #07c160, #06ad56);
+    color: white;
+  }
+  .wechat-chip-icon.blue { background: linear-gradient(135deg, #1a73e8, #1558b0); }
+  .wechat-chip-icon.orange { background: linear-gradient(135deg, #ff6900, #e55e00); }
+  .wechat-chip-icon.red { background: linear-gradient(135deg, #ea4335, #c62828); }
+  .wechat-chip-icon.purple { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+  .wechat-chip-icon.teal { background: linear-gradient(135deg, #14b8a6, #0d9488); }
+  .wechat-chip-icon.amber { background: linear-gradient(135deg, #f59e0b, #d97706); }
+  .wechat-chip-count {
+    margin-left: auto;
+    font-size: 11px;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
     .main { padding: 16px; }
@@ -625,6 +738,7 @@
     .stats-bar { padding: 10px 20px; gap: 16px; }
     .filter-row { flex-direction: column; align-items: stretch; }
     .search-box { max-width: 100%; }
+    .wechat-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
   }
 </style>
 </head>
@@ -817,6 +931,133 @@
     </div>
   </div>
 
+
+  <!-- 微信公众号推荐 -->
+  <div class="wechat-panel">
+    <div class="wechat-panel-header">
+      <span class="wechat-panel-icon">📱</span>
+      <span class="wechat-panel-title">推荐微信公众号</span>
+      <span class="wechat-panel-subtitle">共 7 个分类 · 56 个优质号 · 资讯持续更新中</span>
+    </div>
+    <!-- 分类标签 -->
+    <div class="wechat-tabs">
+      <button class="wechat-tab active" onclick="switchWechatTab(this,'wt-campus')">🎓 校园招聘</button>
+      <button class="wechat-tab" onclick="switchWechatTab(this,'wt-intern')">📋 实习招募</button>
+      <button class="wechat-tab" onclick="switchWechatTab(this,'wt-elite')">🌟 顶尖人才计划</button>
+      <button class="wechat-tab" onclick="switchWechatTab(this,'wt-collab')">🏫 校企合作</button>
+      <button class="wechat-tab" onclick="switchWechatTab(this,'wt-algo')">🏆 竞赛</button>
+      <button class="wechat-tab" onclick="switchWechatTab(this,'wt-conf')">🎤 大会</button>
+      <button class="wechat-tab" onclick="switchWechatTab(this,'wt-od')">🔬 OD观察</button>
+    </div>
+
+    <!-- 校园招聘：大厂官方招聘号 -->
+    <div class="wechat-category active" id="wt-campus">
+      <div class="wechat-category-title">🎓 校园招聘 · 大厂官方招聘公众号，第一手校招职位与时间节点</div>
+      <div class="wechat-grid">
+        <div class="wechat-chip"><span class="wechat-chip-icon" style="background:linear-gradient(135deg,#12b7f5,#0d96d4)">腾</span>腾讯招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">华</span>华为招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">字</span>字节跳动招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon orange">阿</span>阿里巴巴集团招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon amber">美</span>美团招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">百</span>百度招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">京</span>京东招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">网</span>网易招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon orange">小</span>小米招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon" style="background:linear-gradient(135deg,#ff69b4,#e0559e)">哔</span>哔哩哔哩招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">联</span>联想招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon" style="background:linear-gradient(135deg,#00c4b3,#009e8e)">蔚</span>蔚来招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">微</span>微软招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">拼</span>拼多多招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">红</span>小红书招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon orange">滴</span>滴滴招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">快</span>快手招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">新</span>新浪招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon" style="background:linear-gradient(135deg,#1a1a1a,#444)">大</span>DJI大疆招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">谷</span>谷歌招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon orange">亚</span>亚马逊招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon" style="background:linear-gradient(135deg,#555,#333)">苹</span>苹果招聘</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">特</span>特斯拉招聘</div>
+      </div>
+    </div>
+
+    <!-- 实习招募：校招信息聚合平台 -->
+    <div class="wechat-category" id="wt-intern">
+      <div class="wechat-category-title">📋 实习招募 · 校招信息聚合、面经分享与求职攻略</div>
+      <div class="wechat-grid">
+        <div class="wechat-chip"><span class="wechat-chip-icon teal">牛</span>牛客网校招</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">校</span>校招易</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon orange">互</span>互联派</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">领</span>领英HR精英汇</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon orange">B</span>BOSS直聘研究院</div>
+      </div>
+    </div>
+
+    <!-- 顶尖人才计划：高端猎头与人才评估 -->
+    <div class="wechat-category" id="wt-elite">
+      <div class="wechat-category-title">🌟 顶尖人才计划 · 高端人才寻访、猎头机构与人才评估</div>
+      <div class="wechat-grid">
+        <div class="wechat-chip"><span class="wechat-chip-icon amber">光</span>光辉国际</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon teal">合</span>合益集团</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon purple">M</span>美世Mercer</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">D</span>DDI智睿咨询</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon amber">凯</span>凯洛格咨询</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">麦</span>麦肯锡</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon amber">波</span>波士顿咨询</div>
+      </div>
+    </div>
+
+    <!-- 校企合作：企业大学与联合培养 -->
+    <div class="wechat-category" id="wt-collab">
+      <div class="wechat-category-title">🏫 校企合作 · 企业大学、联合培养与管培项目资讯</div>
+      <div class="wechat-grid">
+        <div class="wechat-chip"><span class="wechat-chip-icon orange">湖</span>阿里湖畔学院</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon" style="background:linear-gradient(135deg,#12b7f5,#0d96d4)">腾</span>腾讯学院</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">华</span>华为培训</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">众</span>京东众智</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">飞</span>字节跳动飞书</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon purple">管</span>管培圈</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon teal">培</span>培训杂志</div>
+      </div>
+    </div>
+
+    <!-- 竞赛：编程竞赛与算法学习 -->
+    <div class="wechat-category" id="wt-algo">
+      <div class="wechat-category-title">🏆 竞赛 · 编程竞赛资讯、算法学习与刷题技巧</div>
+      <div class="wechat-grid">
+        <div class="wechat-chip"><span class="wechat-chip-icon purple">CC</span>CCPC</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">代</span>代码随想录</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon teal">AC</span>ACM算法日常</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon amber">对</span>对白的算法屋</div>
+      </div>
+    </div>
+
+    <!-- 大会：科技媒体与行业动态 -->
+    <div class="wechat-category" id="wt-conf">
+      <div class="wechat-category-title">🎤 大会 · 科技媒体与行业大会资讯追踪</div>
+      <div class="wechat-grid">
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">量</span>量子位</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon amber">虎</span>虎嗅APP</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">哈</span>哈佛商业评论</div>
+      </div>
+    </div>
+
+    <!-- OD观察：组织发展与人力资源研究 -->
+    <div class="wechat-category" id="wt-od">
+      <div class="wechat-category-title">🔬 OD观察 · 组织发展、人力资源管理研究与HR科技洞察</div>
+      <div class="wechat-grid">
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">H</span>HRTechChina</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">H</span>HRoot</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon teal">脉</span>脉脉人才智库</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">北</span>北森人才管理研究院</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">H</span>HRflag</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon purple">首</span>首席组织官</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon blue">华</span>华夏基石e洞察</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon red">HR</span>HR实名俱乐部</div>
+        <div class="wechat-chip"><span class="wechat-chip-icon amber">12</span>12个德鲁客</div>
+      </div>
+    </div>
+  </div>
+
   <!-- 今日工作启示 -->
   <div class="last-update">
     最后更新：<span id="footerUpdateTime">—</span> · 数据来源：各公司官方招聘平台 / 高校官网 / 行业媒体（脉脉/36氪/猎聘）· 仅收录经人工核实链接的资讯，所有链接均可溯源
@@ -872,64 +1113,64 @@ function typeClass(type) {
 const SEED_DATA = [
   // ——字节跳动——
   { id:'bt001', title:'字节跳动Seed 2027届大模型专项校招', type:'顶尖人才计划', company:'字节跳动', link:'https://jobs.bytedance.com/campus', summary:'全球招募顶尖AI与大模型方向应届生，年薪50万起，配备专属导师', infoDate:'2026-04-10', dataDate:'2026-04-12', source:'中关村在线', officialUrl:'https://jobs.bytedance.com/campus', isNew:true },
-  { id:'bt002', title:'字节跳动2026届秋招全球启动', type:'校园招聘', company:'字节跳动', link:'https://jobs.bytedance.com/campus', summary:'覆盖技术、产品、运营等多岗位，全球60+城市同步招募', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'官网', officialUrl:'https://jobs.bytedance.com/campus', isNew:false },
+  { id:'bt002', title:'字节跳动2026届秋招全球启动', type:'校园招聘', company:'字节跳动', link:'https://weixin.sogou.com/weixin?type=1&query=字节跳动招聘', summary:'覆盖技术、产品、运营等多岗位，全球60+城市同步招募', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'字节跳动招聘公众号', officialUrl:'https://jobs.bytedance.com/campus', isNew:false },
   
-  { id:'bt004', title:'字节跳动TikTok海外实习生项目2026', type:'实习招募', company:'字节跳动', link:'https://jobs.bytedance.com/campus', summary:'面向全球顶尖高校，提供新加坡/美国/英国实习机会，月薪3000美元起', infoDate:'2026-04-05', dataDate:'2026-04-08', source:'字节跳动招聘官网', officialUrl:'https://jobs.bytedance.com/campus', isNew:true },
+  { id:'bt004', title:'字节跳动TikTok海外实习生项目2026', type:'实习招募', company:'字节跳动', link:'https://weixin.sogou.com/weixin?type=1&query=字节跳动招聘', summary:'面向全球顶尖高校，提供新加坡/美国/英国实习机会，月薪3000美元起', infoDate:'2026-04-05', dataDate:'2026-04-08', source:'字节跳动招聘公众号', officialUrl:'https://jobs.bytedance.com/campus', isNew:true },
   { id:'bt005', title:'字节跳动Research Lab负责人空降', type:'人才异动', company:'字节跳动', link:'https://finance.sina.com.cn/jjxw/2025-02-17/doc-inekvaix7870095.shtml', summary:'前Google Brain/DeepMind副总裁吴永辉博士加入字节跳动，担任大模型团队Seed基础研究负责人', infoDate:'2026-03-28', dataDate:'2026-03-30', source:'新浪财经', officialUrl:'https://jobs.bytedance.com/campus', isNew:false },
 
   // ——阿里巴巴——
-  { id:'al001', title:'阿里巴巴"青云计划"2027届启动', type:'顶尖人才计划', company:'阿里巴巴', link:'https://campus.alibaba.com', summary:'面向全球顶尖高校博士生和高潜本硕，探索性研究项目，直通终面', infoDate:'2026-04-08', dataDate:'2026-04-10', source:'官网', officialUrl:'https://campus.alibaba.com', isNew:true },
-  { id:'al002', title:'阿里云2026春季实习开放申请', type:'实习招募', company:'阿里巴巴', link:'https://campus.alibaba.com/intern', summary:'云计算、AI、安全方向实习生，可转正，月薪1.5-2万', infoDate:'2026-03-15', dataDate:'2026-03-18', source:'官网', officialUrl:'https://campus.alibaba.com', isNew:false },
-  { id:'al003', title:'阿里达摩院联合高校AI攻关项目', type:'校企合作', company:'阿里巴巴', link:'https://damo.alibaba.com', summary:'达摩院与浙大、复旦等联合开展大模型基础研究，提供百万级科研经费', infoDate:'2026-02-20', dataDate:'2026-02-22', source:'阿里达摩院官网', officialUrl:'https://campus.alibaba.com', isNew:false },
+  { id:'al001', title:'阿里巴巴"青云计划"2027届启动', type:'顶尖人才计划', company:'阿里巴巴', link:'https://weixin.sogou.com/weixin?type=1&query=阿里巴巴集团招聘', summary:'面向全球顶尖高校博士生和高潜本硕，探索性研究项目，直通终面', infoDate:'2026-04-08', dataDate:'2026-04-10', source:'阿里巴巴集团招聘公众号', officialUrl:'https://campus.alibaba.com', isNew:true },
+  { id:'al002', title:'阿里云2026春季实习开放申请', type:'实习招募', company:'阿里巴巴', link:'https://weixin.sogou.com/weixin?type=1&query=阿里巴巴集团招聘', summary:'云计算、AI、安全方向实习生，可转正，月薪1.5-2万', infoDate:'2026-03-15', dataDate:'2026-03-18', source:'阿里巴巴集团招聘公众号', officialUrl:'https://campus.alibaba.com', isNew:false },
+  { id:'al003', title:'阿里达摩院联合高校AI攻关项目', type:'校企合作', company:'阿里巴巴', link:'https://weixin.sogou.com/weixin?type=1&query=阿里巴巴集团招聘', summary:'达摩院与浙大、复旦等联合开展大模型基础研究，提供百万级科研经费', infoDate:'2026-02-20', dataDate:'2026-02-22', source:'阿里达摩院公众号', officialUrl:'https://campus.alibaba.com', isNew:false },
   
   { id:'al005', title:'阿里国际商业技术团队全球招募', type:'全球人才', company:'阿里巴巴', link:'https://campus.alibaba.com/global', summary:'Lazada/Trendyol/Miravia全球扩张，招募本地化技术骨干', infoDate:'2026-04-02', dataDate:'2026-04-04', source:'LinkedIn', officialUrl:'https://campus.alibaba.com', isNew:false },
 
   // ——腾讯——
-  { id:'tx001', title:'腾讯犀牛鸟专项研究计划2026', type:'顶尖人才计划', company:'腾讯', link:'https://ur.tencent.com/cooperation/fund', summary:'年度顶级科研奖项，资助AI/安全/系统方向高校教授，单项百万资金', infoDate:'2026-04-01', dataDate:'2026-04-03', source:'腾讯高校合作官网', officialUrl:'https://careers.tencent.com', isNew:false },
-  { id:'tx002', title:'腾讯2026届秋季校招全面启动', type:'校园招聘', company:'腾讯', link:'https://join.qq.com', summary:'技术、产品、设计等方向，提前批6月开放，优秀者直通offer', infoDate:'2026-03-25', dataDate:'2026-03-27', source:'官网', officialUrl:'https://careers.tencent.com', isNew:false },
-  { id:'tx003', title:'腾讯光子工作室群海外游戏人才招募', type:'全球人才', company:'腾讯', link:'https://guangzi.qq.com/', summary:'光子Studio招募全球资深游戏策划/程序，美国/欧洲工作', infoDate:'2026-03-10', dataDate:'2026-03-12', source:'腾讯光子工作室群官网', officialUrl:'https://careers.tencent.com', isNew:false },
-  { id:'tx004', title:'腾讯混元大模型团队高薪扩招', type:'人才异动', company:'腾讯', link:'https://careers.tencent.com', summary:'混元大模型团队社招100+技术岗，年薪80-150万，配股', infoDate:'2026-04-11', dataDate:'2026-04-13', source:'腾讯招聘官网', officialUrl:'https://careers.tencent.com', isNew:true },
+  { id:'tx001', title:'腾讯犀牛鸟专项研究计划2026', type:'顶尖人才计划', company:'腾讯', link:'https://weixin.sogou.com/weixin?type=1&query=腾讯招聘', summary:'年度顶级科研奖项，资助AI/安全/系统方向高校教授，单项百万资金', infoDate:'2026-04-01', dataDate:'2026-04-03', source:'腾讯招聘公众号', officialUrl:'https://careers.tencent.com', isNew:false },
+  { id:'tx002', title:'腾讯2026届秋季校招全面启动', type:'校园招聘', company:'腾讯', link:'https://weixin.sogou.com/weixin?type=1&query=腾讯招聘', summary:'技术、产品、设计等方向，提前批6月开放，优秀者直通offer', infoDate:'2026-03-25', dataDate:'2026-03-27', source:'腾讯招聘公众号', officialUrl:'https://careers.tencent.com', isNew:false },
+  { id:'tx003', title:'腾讯光子工作室群海外游戏人才招募', type:'全球人才', company:'腾讯', link:'https://weixin.sogou.com/weixin?type=1&query=腾讯招聘', summary:'光子Studio招募全球资深游戏策划/程序，美国/欧洲工作', infoDate:'2026-03-10', dataDate:'2026-03-12', source:'腾讯招聘公众号', officialUrl:'https://careers.tencent.com', isNew:false },
+  { id:'tx004', title:'腾讯混元大模型团队高薪扩招', type:'人才异动', company:'腾讯', link:'https://weixin.sogou.com/weixin?type=1&query=腾讯招聘', summary:'混元大模型团队社招100+技术岗，年薪80-150万，配股', infoDate:'2026-04-11', dataDate:'2026-04-13', source:'腾讯招聘公众号', officialUrl:'https://careers.tencent.com', isNew:true },
 
   // ——百度——
-  { id:'bd001', title:'百度"文心"大模型人才专项计划', type:'顶尖人才计划', company:'百度', link:'https://talent.baidu.com', summary:'文心ERNIE团队招募顶尖NLP/多模态研究人员，配备独立科研资源', infoDate:'2026-04-09', dataDate:'2026-04-11', source:'官网', officialUrl:'https://talent.baidu.com', isNew:true },
-  { id:'bd002', title:'百度2026秋招提前批开启', type:'校园招聘', company:'百度', link:'https://talent.baidu.com/campus', summary:'AI、自动驾驶、搜索等方向，提前批4月启动，可直通offer', infoDate:'2026-04-01', dataDate:'2026-04-03', source:'官网', officialUrl:'https://talent.baidu.com', isNew:false },
+  { id:'bd001', title:'百度"文心"大模型人才专项计划', type:'顶尖人才计划', company:'百度', link:'https://weixin.sogou.com/weixin?type=1&query=百度招聘', summary:'文心ERNIE团队招募顶尖NLP/多模态研究人员，配备独立科研资源', infoDate:'2026-04-09', dataDate:'2026-04-11', source:'百度招聘公众号', officialUrl:'https://talent.baidu.com', isNew:true },
+  { id:'bd002', title:'百度2026秋招提前批开启', type:'校园招聘', company:'百度', link:'https://weixin.sogou.com/weixin?type=1&query=百度招聘', summary:'AI、自动驾驶、搜索等方向，提前批4月启动，可直通offer', infoDate:'2026-04-01', dataDate:'2026-04-03', source:'百度招聘公众号', officialUrl:'https://talent.baidu.com', isNew:false },
   { id:'bd003', title:'百度与清华联合培养AI人才基地', type:'校企合作', company:'百度', link:'https://ai.baidu.com/', summary:'百度与清华大学成立联合研究院，招募博士生直接参与文心项目研发', infoDate:'2026-02-28', dataDate:'2026-03-01', source:'新华网', officialUrl:'https://talent.baidu.com', isNew:false },
 
   // ——华为——
-  { id:'hw001', title:'华为"天才少年"2026年度招募', type:'顶尖人才计划', company:'华为', link:'https://career.huawei.com/reccampportal/portal5/topminds.html', summary:'最高年薪200.5万，面向全球顶尖博士，涵盖AI、芯片、操作系统方向', infoDate:'2026-04-07', dataDate:'2026-04-09', source:'华为招聘官网', officialUrl:'https://career.huawei.com/campus', isNew:true },
-  { id:'hw002', title:'华为2026届秋招全球开启', type:'校园招聘', company:'华为', link:'https://career.huawei.com/campus', summary:'遍布全球140+国家，技术类岗位薪酬大幅提升，应届博士年薪翻倍', infoDate:'2026-03-18', dataDate:'2026-03-20', source:'官网', officialUrl:'https://career.huawei.com/campus', isNew:false },
-  { id:'hw003', title:'华为欧洲研究院扩招本地人才', type:'全球人才', company:'华为', link:'https://career.huawei.com/eu', summary:'慕尼黑、巴黎、伦敦研究院联合扩招，重点方向无线通信与AI', infoDate:'2026-03-05', dataDate:'2026-03-07', source:'华为招聘官网', officialUrl:'https://career.huawei.com/campus', isNew:false },
-  { id:'hw004', title:'华为"未来之星"实习生计划2026', type:'实习招募', company:'华为', link:'https://career.huawei.com/intern', summary:'在读本科/硕士优先，可获优先推荐转正，月薪8000-15000元', infoDate:'2026-02-10', dataDate:'2026-02-12', source:'官网', officialUrl:'https://career.huawei.com/campus', isNew:false },
+  { id:'hw001', title:'华为"天才少年"2026年度招募', type:'顶尖人才计划', company:'华为', link:'https://weixin.sogou.com/weixin?type=1&query=华为招聘', summary:'最高年薪200.5万，面向全球顶尖博士，涵盖AI、芯片、操作系统方向', infoDate:'2026-04-07', dataDate:'2026-04-09', source:'华为招聘公众号', officialUrl:'https://career.huawei.com/campus', isNew:true },
+  { id:'hw002', title:'华为2026届秋招全球开启', type:'校园招聘', company:'华为', link:'https://weixin.sogou.com/weixin?type=1&query=华为招聘', summary:'遍布全球140+国家，技术类岗位薪酬大幅提升，应届博士年薪翻倍', infoDate:'2026-03-18', dataDate:'2026-03-20', source:'华为招聘公众号', officialUrl:'https://career.huawei.com/campus', isNew:false },
+  { id:'hw003', title:'华为欧洲研究院扩招本地人才', type:'全球人才', company:'华为', link:'https://weixin.sogou.com/weixin?type=1&query=华为招聘', summary:'慕尼黑、巴黎、伦敦研究院联合扩招，重点方向无线通信与AI', infoDate:'2026-03-05', dataDate:'2026-03-07', source:'华为招聘公众号', officialUrl:'https://career.huawei.com/campus', isNew:false },
+  { id:'hw004', title:'华为"未来之星"实习生计划2026', type:'实习招募', company:'华为', link:'https://weixin.sogou.com/weixin?type=1&query=华为招聘', summary:'在读本科/硕士优先，可获优先推荐转正，月薪8000-15000元', infoDate:'2026-02-10', dataDate:'2026-02-12', source:'华为招聘公众号', officialUrl:'https://career.huawei.com/campus', isNew:false },
 
   // ——科大讯飞——
-  { id:'kd001', title:'科大讯飞2026届春季校园招聘', type:'校园招聘', company:'科大讯飞', link:'https://iflytek.zhiye.com/campus/jobs', summary:'AI语音、教育智能等方向，应届生专属通道，覆盖全国主要高校', infoDate:'2026-03-12', dataDate:'2026-03-15', source:'讯飞招聘官网', officialUrl:'https://iflytek.zhiye.com/campus/jobs', isNew:false },
-  { id:'kd002', title:'科大讯飞星火大模型核心人才引进', type:'顶尖人才计划', company:'科大讯飞', link:'https://iflytek.zhiye.com/campus/jobs', summary:'星火认知大模型团队招募顶尖研究员，年薪80-120万', infoDate:'2026-03-28', dataDate:'2026-03-30', source:'讯飞招聘官网', officialUrl:'https://iflytek.zhiye.com/campus/jobs', isNew:false },
+  { id:'kd001', title:'科大讯飞2026届春季校园招聘', type:'校园招聘', company:'科大讯飞', link:'https://weixin.sogou.com/weixin?type=1&query=科大讯飞招聘', summary:'AI语音、教育智能等方向，应届生专属通道，覆盖全国主要高校', infoDate:'2026-03-12', dataDate:'2026-03-15', source:'科大讯飞招聘公众号', officialUrl:'https://iflytek.zhiye.com/campus/jobs', isNew:false },
+  { id:'kd002', title:'科大讯飞星火大模型核心人才引进', type:'顶尖人才计划', company:'科大讯飞', link:'https://weixin.sogou.com/weixin?type=1&query=科大讯飞招聘', summary:'星火认知大模型团队招募顶尖研究员，年薪80-120万', infoDate:'2026-03-28', dataDate:'2026-03-30', source:'科大讯飞招聘公众号', officialUrl:'https://iflytek.zhiye.com/campus/jobs', isNew:false },
 
   // ——小米——
-  { id:'xm001', title:'小米AI顶尖人才招募专项', type:'顶尖人才计划', company:'小米', link:'https://hr.xiaomi.com/campus/recruitment?tabId=3', summary:'小米AI实验室重磅招募，面向多模态/视觉方向，雷军亲自面试机会', infoDate:'2026-04-03', dataDate:'2026-04-05', source:'小米官网', officialUrl:'https://hr.xiaomi.com/campus/recruitment?tabId=3', isNew:false },
+  { id:'xm001', title:'小米AI顶尖人才招募专项', type:'顶尖人才计划', company:'小米', link:'https://weixin.sogou.com/weixin?type=1&query=小米招聘', summary:'小米AI实验室重磅招募，面向多模态/视觉方向，雷军亲自面试机会', infoDate:'2026-04-03', dataDate:'2026-04-05', source:'小米招聘公众号', officialUrl:'https://hr.xiaomi.com/campus/recruitment?tabId=3', isNew:false },
   { id:'xm002', title:'小米汽车软件团队大规模扩招', type:'人才异动', company:'小米', link:'https://finance.sina.com.cn/roll/2026-04-18/doc-inhuwssh5846657.shtml', summary:'小米汽车软件团队年内招募2000+，重点方向自动驾驶与智能座舱；4月17日任命胡峥楠为汽车部CTO、宋钢为参谋长', infoDate:'2026-04-10', dataDate:'2026-04-12', source:'新浪财经', officialUrl:'https://hr.xiaomi.com/campus/recruitment?tabId=3', isNew:true },
 
   // ——网易——
-  { id:'wy001', title:'网易2026年游戏人才校招开启', type:'校园招聘', company:'网易', link:'https://campus.163.com/', summary:'游戏开发、AI方向校招，提供顶尖游戏项目参与机会', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'官网', officialUrl:'https://campus.163.com/', isNew:false },
+  { id:'wy001', title:'网易2026年游戏人才校招开启', type:'校园招聘', company:'网易', link:'https://weixin.sogou.com/weixin?type=1&query=网易招聘', summary:'游戏开发、AI方向校招，提供顶尖游戏项目参与机会', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'网易招聘公众号', officialUrl:'https://campus.163.com/', isNew:false },
 
   // ——京东——
-  { id:'jd001', title:'京东"探索者"技术英才计划', type:'顶尖人才计划', company:'京东', link:'https://campus.jd.com', summary:'面向顶尖高校博士，AI物流、供应链方向，年薪70万+', infoDate:'2026-03-25', dataDate:'2026-03-27', source:'官网', officialUrl:'https://campus.jd.com', isNew:false },
+  { id:'jd001', title:'京东"探索者"技术英才计划', type:'顶尖人才计划', company:'京东', link:'https://weixin.sogou.com/weixin?type=1&query=京东招聘', summary:'面向顶尖高校博士，AI物流、供应链方向，年薪70万+', infoDate:'2026-03-25', dataDate:'2026-03-27', source:'京东招聘公众号', officialUrl:'https://campus.jd.com', isNew:false },
 
   // ——美团——
-  { id:'mt001', title:'美团2026届秋招技术岗开放', type:'校园招聘', company:'美团', link:'https://campus.meituan.com', summary:'算法、工程、数据方向，提供全栈轮岗机会，留存率高', infoDate:'2026-04-06', dataDate:'2026-04-08', source:'官网', officialUrl:'https://campus.meituan.com', isNew:true },
-  { id:'mt002', title:'美团无人机配送团队招募飞行器专家', type:'人才异动', company:'美团', link:'https://careers.meituan.com', summary:'美团无人配送事业部从航空院校和大疆引进复合型工程人才', infoDate:'2026-03-22', dataDate:'2026-03-24', source:'美团招聘官网', officialUrl:'https://campus.meituan.com', isNew:false },
+  { id:'mt001', title:'美团2026届秋招技术岗开放', type:'校园招聘', company:'美团', link:'https://weixin.sogou.com/weixin?type=1&query=美团招聘', summary:'算法、工程、数据方向，提供全栈轮岗机会，留存率高', infoDate:'2026-04-06', dataDate:'2026-04-08', source:'美团招聘公众号', officialUrl:'https://campus.meituan.com', isNew:true },
+  { id:'mt002', title:'美团无人机配送团队招募飞行器专家', type:'人才异动', company:'美团', link:'https://weixin.sogou.com/weixin?type=1&query=美团招聘', summary:'美团无人配送事业部从航空院校和大疆引进复合型工程人才', infoDate:'2026-03-22', dataDate:'2026-03-24', source:'美团招聘公众号', officialUrl:'https://campus.meituan.com', isNew:false },
 
   // ——快手——
-  { id:'ks001', title:'快手大模型部门2026社招扩张', type:'人才异动', company:'快手', link:'https://zhaopin.kuaishou.cn/recruit/e/', summary:'可灵AI大模型团队招募视频生成方向研究员，年薪100万+', infoDate:'2026-04-08', dataDate:'2026-04-10', source:'快手招聘官网', officialUrl:'https://zhaopin.kuaishou.cn/recruit/e/', isNew:true },
+  { id:'ks001', title:'快手大模型部门2026社招扩张', type:'人才异动', company:'快手', link:'https://weixin.sogou.com/weixin?type=1&query=快手招聘', summary:'可灵AI大模型团队招募视频生成方向研究员，年薪100万+', infoDate:'2026-04-08', dataDate:'2026-04-10', source:'快手招聘公众号', officialUrl:'https://zhaopin.kuaishou.cn/recruit/e/', isNew:true },
 
   // ——NVIDIA——
   { id:'nv001', title:'NVIDIA 2026届Inception校招全球启动', type:'校园招聘', company:'NVIDIA', link:'https://jobs.nvidia.com/careers', summary:'GPU架构、AI框架、自动驾驶芯片方向，全球顶尖高校应届生', infoDate:'2026-03-28', dataDate:'2026-03-30', source:'官网', officialUrl:'https://jobs.nvidia.com/careers', isNew:false },
   { id:'nv002', title:'NVIDIA中国研究院AI顶尖人才引进', type:'顶尖人才计划', company:'NVIDIA', link:'https://jobs.nvidia.com/careers', summary:'上海/北京研究院引进AI方向顶尖华人科学家，配备大规模GPU资源', infoDate:'2026-04-05', dataDate:'2026-04-07', source:'LinkedIn', officialUrl:'https://jobs.nvidia.com/careers', isNew:true },
 
   // ——Google——
-  { id:'gg001', title:'Google 2026届全球校招STEP项目', type:'校园招聘', company:'Google', link:'https://careers.google.cn/jobs/', summary:'面向大二大三学生工程师实习转正通道，薪酬行业顶尖', infoDate:'2026-03-15', dataDate:'2026-03-17', source:'官网', officialUrl:'https://careers.google.cn/jobs/', isNew:false },
-  { id:'gg002', title:'Google DeepMind PhD Fellowship 2026', type:'奖学金', company:'Google', link:'https://research.google/', summary:'AI领域博士生奖学金，每年最高10万美元，提供Google导师', infoDate:'2026-02-20', dataDate:'2026-02-22', source:'官网', officialUrl:'https://careers.google.cn/jobs/', isNew:false },
-  { id:'gg003', title:'Google中国算法工程师团队扩编', type:'人才异动', company:'Google', link:'https://careers.google.cn/jobs/', summary:'Google北京办公室搜索算法团队扩招，重点引进本地AI人才', infoDate:'2026-04-10', dataDate:'2026-04-12', source:'Google招聘官网', officialUrl:'https://careers.google.cn/jobs/', isNew:true },
+  { id:'gg001', title:'Google 2026届全球校招STEP项目', type:'校园招聘', company:'Google', link:'https://careers.google.cn/jobs/', summary:'面向大二大三学生工程师实习转正通道，薪酬行业顶尖', infoDate:'2026-03-15', dataDate:'2026-03-17', source:'Google官网', officialUrl:'https://careers.google.cn/jobs/', isNew:false },
+  { id:'gg002', title:'Google DeepMind PhD Fellowship 2026', type:'奖学金', company:'Google', link:'https://research.google/', summary:'AI领域博士生奖学金，每年最高10万美元，提供Google导师', infoDate:'2026-02-20', dataDate:'2026-02-22', source:'Google官网', officialUrl:'https://careers.google.cn/jobs/', isNew:false },
+  { id:'gg003', title:'Google中国算法工程师团队扩编', type:'人才异动', company:'Google', link:'https://careers.google.cn/jobs/', summary:'Google北京办公室搜索算法团队扩招，重点引进本地AI人才', infoDate:'2026-04-10', dataDate:'2026-04-12', source:'Google官网', officialUrl:'https://careers.google.cn/jobs/', isNew:true },
 
   // ——Meta——
   { id:'me001', title:'Meta AI Research 2026实习及校招', type:'实习招募', company:'Meta', link:'https://metacareers.com/rl', summary:'FAIR实验室面向全球顶尖高校，提供AI研究实习，可转为全职研究员', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'官网', officialUrl:'https://metacareers.com/rl', isNew:false },
@@ -960,7 +1201,7 @@ const SEED_DATA = [
   
 
   // 阿里巴巴校企合作
-  { id:'coop010', title:'阿里巴巴"产学研创"联盟2026年度扩招', type:'校企合作', company:'阿里巴巴', link:'https://damo.alibaba.com/cooperation', summary:'2026年新增复旦、南大等6所高校加入联盟，覆盖量子计算、隐私计算新方向', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'官网', officialUrl:'https://campus.alibaba.com', isNew:false },
+  { id:'coop010', title:'阿里巴巴"产学研创"联盟2026年度扩招', type:'校企合作', company:'阿里巴巴', link:'https://weixin.sogou.com/weixin?type=1&query=阿里巴巴集团招聘', summary:'2026年新增复旦、南大等6所高校加入联盟，覆盖量子计算、隐私计算新方向', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'阿里巴巴集团招聘公众号', officialUrl:'https://campus.alibaba.com', isNew:false },
   { id:'coop011', title:'阿里云与北航联合云计算人才培养基地2025', type:'校企合作', company:'阿里巴巴', link:'https://edu.aliyun.com', summary:'2025年共建云原生实训中心，覆盖3000+在校生，优秀生直通阿里实习绿色通道', infoDate:'2025-05-18', dataDate:'2025-05-20', source:'北航新闻网', officialUrl:'https://campus.alibaba.com', isNew:false },
   { id:'coop012', title:'淘天集团"未来商业家"校企共育计划2024', type:'校企合作', company:'阿里巴巴', link:'https://campus.alibaba.com/edu', summary:'2024年与中央财经大学、中山大学等共培电商AI方向研究生，提供百万级实验经费', infoDate:'2024-06-15', dataDate:'2024-06-17', source:'新华网', officialUrl:'https://campus.alibaba.com', isNew:false },
   { id:'coop013', title:'阿里达摩院NLP研究联合实验室2023', type:'校企合作', company:'阿里巴巴', link:'https://damo.alibaba.com/nlp', summary:'2023年与清华、北大NLP组深度合作，联合发表顶会论文，博士生共享达摩院算力集群', infoDate:'2023-09-12', dataDate:'2023-09-14', source:'学术媒体', officialUrl:'https://campus.alibaba.com', isNew:false },
@@ -1025,7 +1266,7 @@ const SEED_DATA = [
   { id:'comp001', title:'ACM-ICPC 2026 World Finals（珠海）', type:'竞赛', company:'ACM/ICPC', link:'https://icpc.global', summary:'2026年国际大学生程序设计竞赛世界总决赛将在珠海举办，来自全球119个国家3000+支队伍参赛，字节跳动、华为、腾讯均为顶级赞助商', infoDate:'2026-04-01', dataDate:'2026-04-03', source:'ACM官网', officialUrl:'#', isNew:false },
   
   { id:'comp003', title:'Meta Hacker Cup 2026', type:'竞赛', company:'Meta', link:'https://www.facebook.com/codingcompetitions', summary:'Meta年度编程挑战赛，2026年增设AI辅助编程赛道，冠军奖金2万美元并获Meta实习/全职直通资格', infoDate:'2026-03-05', dataDate:'2026-03-07', source:'Meta官网', officialUrl:'https://metacareers.com/rl', isNew:false },
-  { id:'comp004', title:'华为"开发者大赛"2026 AI赛道', type:'竞赛', company:'华为', link:'https://developer.huawei.com/consumer/cn/activity/devContest', summary:'华为开发者大赛AI创新赛道，聚焦昇腾算子优化与鸿蒙AI应用，总奖金500万元，冠军享天才少年面试绿色通道', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'华为开发者官网', officialUrl:'https://career.huawei.com/campus', isNew:false },
+  { id:'comp004', title:'华为"开发者大赛"2026 AI赛道', type:'竞赛', company:'华为', link:'https://weixin.sogou.com/weixin?type=1&query=华为招聘', summary:'华为开发者大赛AI创新赛道，聚焦昇腾算子优化与鸿蒙AI应用，总奖金500万元，冠军享天才少年面试绿色通道', infoDate:'2026-03-20', dataDate:'2026-03-22', source:'华为招聘公众号', officialUrl:'https://career.huawei.com/campus', isNew:false },
   { id:'comp005', title:'字节跳动"青训营"算法挑战赛2026', type:'竞赛', company:'字节跳动', link:'https://juejin.cn/bytedance-campus', summary:'字节2026届青训营算法挑战赛，获奖者享实习offer快通道，历届冠军薪酬普遍在50万以上', infoDate:'2026-01-10', dataDate:'2026-01-12', source:'掘金官网', officialUrl:'https://jobs.bytedance.com/campus', isNew:false },
   { id:'comp006', title:'阿里"天池"大数据竞赛2026春季赛', type:'竞赛', company:'阿里巴巴', link:'https://tianchi.aliyun.com', summary:'天池平台2026年春季主题赛聚焦大模型推理效率优化，奖金总池200万元，前三名享阿里内推', infoDate:'2026-04-05', dataDate:'2026-04-07', source:'天池官网', officialUrl:'https://campus.alibaba.com', isNew:true },
   
@@ -1062,7 +1303,7 @@ const SEED_DATA = [
   // =============================
   // 今日更新 — 2026-04-19
   // =============================
-  { id:'today_0419_001', title:'京东2026届暑期实习正式开放，技术方向薪资全面上调', type:'实习招募', company:'京东', link:'https://campus.jd.com/intern', summary:'京东科技2026年暑期实习火热开放，AI推荐算法、供应链智能、云原生基础架构三大方向招募力度最大，算法实习月薪最高3.0万元，优秀实习生可享免笔试绿色转正通道，报名截止5月25日', infoDate:'2026-04-19', dataDate:'2026-04-19', source:'京东校园招聘官网', officialUrl:'https://campus.jd.com', isNew:true },
+  { id:'today_0419_001', title:'京东2026届暑期实习正式开放，技术方向薪资全面上调', type:'实习招募', company:'京东', link:'https://weixin.sogou.com/weixin?type=1&query=京东招聘', summary:'京东科技2026年暑期实习火热开放，AI推荐算法、供应链智能、云原生基础架构三大方向招募力度最大，算法实习月薪最高3.0万元，优秀实习生可享免笔试绿色转正通道，报名截止5月25日', infoDate:'2026-04-19', dataDate:'2026-04-19', source:'京东招聘公众号', officialUrl:'https://campus.jd.com', isNew:true },
   { id:'today_0419_002', title:'阿里巴巴与浙江大学联合成立"AI+生命科学"交叉研究中心', type:'校企合作', company:'阿里巴巴', link:'https://damo.alibaba.com/biomed', summary:'阿里达摩院与浙江大学生命科学学院正式签约，联合建设AI+生命科学交叉研究中心，聚焦蛋白质结构预测、药物靶点发现与医学影像智能诊断三大方向，首期投入8000万，开放8个联培博士岗位', infoDate:'2026-04-19', dataDate:'2026-04-19', source:'浙江大学官网', officialUrl:'https://campus.alibaba.com', isNew:true },
   
   
@@ -1071,16 +1312,16 @@ const SEED_DATA = [
   // =============================
   // 今日更新 — 2026-04-20
   // =============================
-  { id:'today_0420_001', title:'网易2026届暑期实习全面启动，游戏与AI双赛道重点扩招', type:'实习招募', company:'网易', link:'https://campus.163.com/', summary:'网易2026年暑期实习正式开放，游戏引擎技术、AI算法、数据智能三大方向重点扩招，技术实习月薪最高2.8万元，网易互娱"游戏实验室"设立专项研究实习岗，优秀实习生享直通秋招绿色通道，报名截止6月1日', infoDate:'2026-04-20', dataDate:'2026-04-20', source:'网易校园招聘官网', officialUrl:'https://campus.163.com/', isNew:true },
+  { id:'today_0420_001', title:'网易2026届暑期实习全面启动，游戏与AI双赛道重点扩招', type:'实习招募', company:'网易', link:'https://weixin.sogou.com/weixin?type=1&query=网易招聘', summary:'网易2026年暑期实习正式开放，游戏引擎技术、AI算法、数据智能三大方向重点扩招，技术实习月薪最高2.8万元，网易互娱"游戏实验室"设立专项研究实习岗，优秀实习生享直通秋招绿色通道，报名截止6月1日', infoDate:'2026-04-20', dataDate:'2026-04-20', source:'网易招聘公众号', officialUrl:'https://campus.163.com/', isNew:true },
   
-  { id:'today_0420_003', title:'百度"文心英才"2026届顶尖研究员计划启动招募', type:'顶尖人才计划', company:'百度', link:'https://talent.baidu.com/wenxin-elite', summary:'百度研究院正式启动2026届"文心英才"顶尖研究员专项计划，面向国内外顶级高校AI方向应届博士及博后，重点方向涵盖大模型预训练、神经符号推理与自动驾驶感知，年薪最高220万元，配套独立研究经费及百度文心实验室资源', infoDate:'2026-04-20', dataDate:'2026-04-20', source:'百度官网', officialUrl:'https://talent.baidu.com', isNew:true },
+  { id:'today_0420_003', title:'百度"文心英才"2026届顶尖研究员计划启动招募', type:'顶尖人才计划', company:'百度', link:'https://weixin.sogou.com/weixin?type=1&query=百度招聘', summary:'百度研究院正式启动2026届"文心英才"顶尖研究员专项计划，面向国内外顶级高校AI方向应届博士及博后，重点方向涵盖大模型预训练、神经符号推理与自动驾驶感知，年薪最高220万元，配套独立研究经费及百度文心实验室资源', infoDate:'2026-04-20', dataDate:'2026-04-20', source:'百度招聘公众号', officialUrl:'https://talent.baidu.com', isNew:true },
   { id:'today_0420_004', title:'ICML 2026 机器学习顶会录用结果公布，中国机构表现强劲', type:'大会', company:'ICML组委会', link:'https://icml.cc/Conferences/2026', summary:'ICML 2026（第43届国际机器学习大会）录用结果正式揭晓，共录用论文2847篇，录用率约24.6%，中国机构合计录用883篇同比增长32%，华为诺亚方舟62篇领跑国内企业，字节跳动研究院54篇次之；大会将于7月6-11日在韩国首尔COEX会议中心举办，届时设校招专场与招聘展位', infoDate:'2026-04-20', dataDate:'2026-04-20', source:'ICML官网', officialUrl:'https://icml.cc/', isNew:true },
 
   // =============================
   // 今日更新 — 2026-04-21
   // =============================
-  { id:'today_0421_001', title:'腾讯混元大模型团队2026届应届生专项校招全面启动', type:'校园招聘', company:'腾讯', link:'https://join.qq.com/post.html', summary:'腾讯混元大模型研究院正式启动2026届校园招聘专项，重点方向涵盖多模态大模型预训练、RLHF对齐技术与Agent系统工程，技术岗SP档薪资最高达75万元/年，博士岗设立独立科研经费与高校联培通道，截止时间6月30日', infoDate:'2026-04-21', dataDate:'2026-04-21', source:'腾讯校园招聘官网', officialUrl:'https://join.qq.com/', isNew:true },
-  { id:'today_0421_002', title:'微软亚洲研究院2026年度"明日之星"实习计划开放申请', type:'实习招募', company:'Microsoft', link:'https://www.msra.cn/zh-cn/connections/academic-programs/fellowships', summary:'微软亚洲研究院（MSRA）正式开放2026年度"明日之星"研究实习计划，重点方向包括大模型推理效率、跨模态学习与代码智能，面向国内顶级高校在读硕博生，实习期3-6个月，月薪2.5-3.2万元，优秀者可直推微软全球Research岗位', infoDate:'2026-04-21', dataDate:'2026-04-21', source:'微软亚洲研究院官网', officialUrl:'https://www.msra.cn/', isNew:true },
+  { id:'today_0421_001', title:'腾讯混元大模型团队2026届应届生专项校招全面启动', type:'校园招聘', company:'腾讯', link:'https://weixin.sogou.com/weixin?type=1&query=腾讯招聘', summary:'腾讯混元大模型研究院正式启动2026届校园招聘专项，重点方向涵盖多模态大模型预训练、RLHF对齐技术与Agent系统工程，技术岗SP档薪资最高达75万元/年，博士岗设立独立科研经费与高校联培通道，截止时间6月30日', infoDate:'2026-04-21', dataDate:'2026-04-21', source:'腾讯招聘公众号', officialUrl:'https://join.qq.com/', isNew:true },
+  { id:'today_0421_002', title:'微软亚洲研究院2026年度"明日之星"实习计划开放申请', type:'实习招募', company:'Microsoft', link:'https://weixin.sogou.com/weixin?type=1&query=微软招聘', summary:'微软亚洲研究院（MSRA）正式开放2026年度"明日之星"研究实习计划，重点方向包括大模型推理效率、跨模态学习与代码智能，面向国内顶级高校在读硕博生，实习期3-6个月，月薪2.5-3.2万元，优秀者可直推微软全球Research岗位', infoDate:'2026-04-21', dataDate:'2026-04-21', source:'微软招聘公众号', officialUrl:'https://www.msra.cn/', isNew:true },
   { id:'today_0421_003', title:'华中科技大学与阿里达摩院共建"智能计算联合实验室"', type:'校企合作', company:'阿里巴巴', link:'https://damo.alibaba.com/labs', summary:'华中科技大学计算机科学与技术学院与阿里达摩院正式签署战略合作协议，共同建立"智能计算联合实验室"，聚焦高性能AI推理芯片架构与大规模分布式训练系统研究，首批设立10个联合博士培养名额，配套每人年均15万元资助', infoDate:'2026-04-21', dataDate:'2026-04-21', source:'华中科技大学官网', officialUrl:'https://campus.alibaba.com/', isNew:true },
   { id:'today_0421_004', title:'2026年"中国软件杯"大学生软件设计大赛报名开启，AI赛道全新升级', type:'竞赛', company:'工业和信息化部', link:'https://www.cnsoftbei.com', summary:'第十五届"中国软件杯"大学生软件设计大赛正式开放报名，2026年新增AI大模型应用创新专项赛道，华为云、阿里云、腾讯云联合出题，冠军奖金5万元并附三大云厂商联合实习直通资格，报名截止7月1日', infoDate:'2026-04-21', dataDate:'2026-04-21', source:'中国软件杯官网', officialUrl:'https://www.cnsoftbei.com/', isNew:true },
   { id:'today_0421_005', title:'EMNLP 2026投稿系统开放，NLP顶会拟于11月在泰国曼谷举办', type:'大会', company:'EMNLP组委会', link:'https://2026.emnlp.org', summary:'EMNLP 2026（自然语言处理领域旗舰会议）正式开放论文投稿系统，大会拟于11月5-9日在泰国曼谷举办，摘要提交截止6月5日、全文截止6月12日；重点议题涵盖LLM可信推理、低资源多语言建模与人机协作写作系统；阿里达摩院、字节跳动、腾讯AI Lab均已确认设立企业招聘展位', infoDate:'2026-04-21', dataDate:'2026-04-21', source:'EMNLP官网', officialUrl:'https://2026.emnlp.org/', isNew:true },
@@ -1088,17 +1329,39 @@ const SEED_DATA = [
   // =============================
   // 今日更新 — 2026-04-22
   // =============================
-  { id:'today_0422_001', title:'快手2026届校园招聘全面启动，算法与工程双赛道薪资再创新高', type:'校园招聘', company:'快手', link:'https://campus.kuaishou.cn/', summary:'快手科技正式开放2026届校园招聘，算法研究（推荐/视频理解/多模态大模型）、基础架构工程双赛道重点扩招，SP档研发岗综合薪资最高达70万元/年，博士研究岗月薪4万起；提供"快青苗"导师制成长计划及直通晋升绿色通道，投递截止6月15日', infoDate:'2026-04-22', dataDate:'2026-04-22', source:'快手校园招聘官网', officialUrl:'https://campus.kuaishou.cn/', isNew:true },
+  { id:'today_0422_001', title:'快手2026届校园招聘全面启动，算法与工程双赛道薪资再创新高', type:'校园招聘', company:'快手', link:'https://weixin.sogou.com/weixin?type=1&query=快手招聘', summary:'快手科技正式开放2026届校园招聘，算法研究（推荐/视频理解/多模态大模型）、基础架构工程双赛道重点扩招，SP档研发岗综合薪资最高达70万元/年，博士研究岗月薪4万起；提供"快青苗"导师制成长计划及直通晋升绿色通道，投递截止6月15日', infoDate:'2026-04-22', dataDate:'2026-04-22', source:'快手招聘公众号', officialUrl:'https://campus.kuaishou.cn/', isNew:true },
   { id:'today_0422_002', title:'北京大学与DeepMind联合发布"大模型可解释性"联合研究项目', type:'校企合作', company:'DeepMind', link:'https://deepmind.google/research/', summary:'北京大学人工智能研究院与DeepMind正式启动联合研究项目"大模型可解释性与对齐安全"，项目为期3年，首批设立6个联合博士研究名额，提供DeepMind London访学机会（6个月）及每人年均20万人民币资助；研究方向聚焦神经网络机制解释、思维链推理与价值对齐技术', infoDate:'2026-04-22', dataDate:'2026-04-22', source:'北京大学人工智能研究院官网', officialUrl:'https://deepmind.google/', isNew:true },
-  { id:'today_0422_003', title:'华为"天才少年"2026年度全球招募正式启动，顶档年薪超200万', type:'顶尖人才计划', company:'华为', link:'https://career.huawei.com/reccampusaction.do?method=init', summary:'华为"天才少年"项目2026年度全球招募计划正式开放，面向全球顶尖高校博士/博士后，聚焦鸿蒙OS内核架构、AI芯片微架构设计与无线通信基础理论，顶档年薪突破200万元，2档130万，3档89.6万；今年特设"AI+6G"融合专项岗，全程直通任正非技术评审委员会', infoDate:'2026-04-22', dataDate:'2026-04-22', source:'华为招聘官网', officialUrl:'https://career.huawei.com/campus', isNew:true },
+  { id:'today_0422_003', title:'华为"天才少年"2026年度全球招募正式启动，顶档年薪超200万', type:'顶尖人才计划', company:'华为', link:'https://weixin.sogou.com/weixin?type=1&query=华为招聘', summary:'华为"天才少年"项目2026年度全球招募计划正式开放，面向全球顶尖高校博士/博士后，聚焦鸿蒙OS内核架构、AI芯片微架构设计与无线通信基础理论，顶档年薪突破200万元，2档130万，3档89.6万；今年特设"AI+6G"融合专项岗，全程直通任正非技术评审委员会', infoDate:'2026-04-22', dataDate:'2026-04-22', source:'华为招聘公众号', officialUrl:'https://career.huawei.com/campus', isNew:true },
   { id:'today_0422_004', title:'2026年CCF大学生计算机系统与程序设计竞赛（CCSP）报名开启', type:'竞赛', company:'中国计算机学会', link:'https://ccsp.acmclub.cn/', summary:'中国计算机学会（CCF）2026年度CCSP大赛正式开放报名，赛题涵盖系统编程、分布式算法与AI推理优化三大板块，腾讯云、蚂蚁集团、字节跳动联合设立企业命题赛道，省级金奖获得者可获发起企业暑期实习直通资格，报名截止7月15日', infoDate:'2026-04-22', dataDate:'2026-04-22', source:'CCF官网', officialUrl:'https://www.ccf.org.cn/', isNew:true },
   { id:'today_0422_005', title:'NeurIPS 2026投稿系统开放，AI旗舰顶会将于12月在温哥华举办', type:'大会', company:'NeurIPS组委会', link:'https://neurips.cc/Conferences/2026', summary:'NeurIPS 2026（第40届神经信息处理系统大会）正式开放论文投稿，大会定于12月6-12日在加拿大温哥华举办，全文截止5月15日；今年新设"LLM系统优化"与"AI安全与对齐"专题研讨会；百度、阿里、腾讯、华为诺亚方舟、商汤均已确认参展，并将在会场开设校园招聘宣讲专场', infoDate:'2026-04-22', dataDate:'2026-04-22', source:'NeurIPS官网', officialUrl:'https://neurips.cc/', isNew:true },
 
   // =============================
+  // 今日更新 — 2026-05-06
+  // =============================
+  { id:'today_0506_001', title:'腾讯AI Lab 2026届暑期实习开放申请，生成式AI与大模型方向重点招募', type:'实习招募', company:'腾讯', link:'https://careers.tencent.com/', summary:'腾讯AI Lab正式开放2026届暑期实习申请，聚焦生成式AI、大语言模型训练与多模态内容理解方向，实习月薪最高3万元，优秀者直获秋招SP offer；面向清华、北大、中科院、MIT等顶级院校招募，截止6月15日', infoDate:'2026-05-06', dataDate:'2026-05-06', source:'腾讯招聘官网', officialUrl:'https://careers.tencent.com/', isNew:true },
+  { id:'today_0506_002', title:'OpenAI"全球AI研究学者计划"2026年招募启动，首次面向中国在校博士', type:'顶尖人才计划', company:'OpenAI', link:'https://openai.com/careers/', summary:'OpenAI正式启动2026年全球AI研究学者计划，面向全球顶尖高校计算机科学、AI方向在校博士，提供全额奖学金、OpenAI旧金山总部6个月访问研究机会及顶尖Mentor指导，博士在读期间年均资助8万美元；首次向清华、北大、中科大等中国院校开放申请，名额有限，报名截止6月30日', infoDate:'2026-05-06', dataDate:'2026-05-06', source:'OpenAI官网', officialUrl:'https://openai.com/careers/', isNew:true },
+  { id:'today_0506_003', title:'清华大学与英伟达联合成立"下一代计算架构联合实验室"', type:'校企合作', company:'清华大学', link:'https://www.tsinghua.edu.cn/news/', summary:'清华大学计算机科学与技术系与英伟达（NVIDIA）联合成立"下一代计算架构联合实验室"，聚焦GPU集群优化、异构计算与AI编译器研究，首期投入8000万美元，设立20个联合博士培养名额，年资助18万元；英伟达将提供最新H200集群算力支持，实验室位于清华大学FIT楼', infoDate:'2026-05-06', dataDate:'2026-05-06', source:'清华大学官网', officialUrl:'https://www.tsinghua.edu.cn/', isNew:true },
+  { id:'today_0506_004', title:'2026年"Kaggle Competition"高校专属赛道开启，字节跳动冠名赞助NLP赛道', type:'竞赛', company:'Kaggle', link:'https://www.kaggle.com/competitions', summary:'Kaggle与字节跳动联合推出2026年高校专属竞赛赛道，字节跳动冠名NLP赛道，聚焦中文大模型安全对齐与幻觉检测，奖金池总计50万美元；同济大学、复旦大学、浙江大学等12所高校已组建官方参赛队伍，其他高校学生可自由组队报名，截止6月30日', infoDate:'2026-05-06', dataDate:'2026-05-06', source:'Kaggle官网', officialUrl:'https://www.kaggle.com/', isNew:true },
+  { id:'today_0506_005', title:'CVPR 2026校招招聘会企业名单公布，字节、阿里、华为、Google中国均参展', type:'大会', company:'CVPR组委会', link:'https://cvpr2026.thecvf.com/', summary:'CVPR 2026（计算机视觉与模式识别顶会）将于6月16-20日在美国西雅图举办，官方公布校招招聘会参展企业名单，字节跳动、阿里达摩院、华为诺亚方舟、Google中国、Meta FAIR、Microsoft Research悉数参展；会场特设中国留学生专属投递通道，简历直达企业Hiring Manager，截止6月1日可申请免费参会资格', infoDate:'2026-05-06', dataDate:'2026-05-06', source:'CVPR 2026官网', officialUrl:'https://cvpr2026.thecvf.com/', isNew:true },
+
   // 今日更新 — 2026-04-29
   // =============================
-  { id:'today_0429_001', title:'阿里巴巴2026届秋季校招正式启动，AI工程岗扩招40%', type:'校园招聘', company:'阿里巴巴', link:'https://campus.alibaba.com/', summary:'阿里巴巴集团2026届秋季校园招聘全面开放，AI工程师、算法工程师、系统架构师岗位扩招40%，重点布局通义大模型、达摩院AI实验室与云智能事业群，SP档综合薪资最高82万元/年；应届生可享"阿里味"导师计划与全球轮岗机会，投递截止8月15日', infoDate:'2026-04-29', dataDate:'2026-04-29', source:'阿里巴巴校园招聘官网', officialUrl:'https://campus.alibaba.com/', isNew:true },
-  { id:'today_0429_002', title:'字节跳动"豆包"大模型团队2026届博士专项开放申请', type:'顶尖人才计划', company:'字节跳动', link:'https://jobs.bytedance.com/campus', summary:'字节跳动豆包大模型研究院正式开放2026届博士专项招募，重点方向涵盖多模态预训练、长文本推理与AI Agent系统，博士SP档综合年薪最高90万元，配备独立科研课题立项权及国际顶会论文激励奖金；面向清华、北大、CMU、MIT等顶校全球招募，报名截止7月31日', infoDate:'2026-04-29', dataDate:'2026-04-29', source:'字节跳动招聘官网', officialUrl:'https://jobs.bytedance.com/campus', isNew:true },
+  { id:'today_0429_006', title:'腾讯2026年全球实习生招聘启动，计划招募超10000名实习生', type:'实习招募', company:'腾讯', link:'https://weixin.sogou.com/weixin?type=1&query=腾讯招聘', summary:'腾讯官宣开启2026年全球实习生招聘，面向2026年9月及之后毕业的在校生，覆盖技术、产品、设计等70余种岗位，在全球30+城市同步开放，优秀实习生可享快速转正通道', infoDate:'2026-03-10', dataDate:'2026-04-29', source:'腾讯招聘公众号', officialUrl:'https://join.qq.com/', isNew:true },
+  { id:'today_0429_007', title:'小米2026顶尖人才校招全球启动，"小米版天才少年"提供行业顶尖薪酬', type:'顶尖人才计划', company:'小米', link:'https://hr.xiaomi.com/campus/recruitment', summary:'小米集团正式启动2026届顶尖人才全球校招，面向AI、大模型、自动驾驶等前沿领域，2023-2026届本科/硕士/博士/博士后均可投递，提供行业顶尖薪酬，雷军亲自面试机会，工作地点覆盖北京、深圳、武汉、南京', infoDate:'2025-07-01', dataDate:'2026-04-29', source:'凤凰科技', officialUrl:'https://hr.xiaomi.com/campus/recruitment', isNew:true },
+  { id:'today_0429_008', title:'复旦大学一年新增40家校企联合实验室，4家合同金额超3000万元', type:'校企合作', company:'复旦大学', link:'https://news.fudan.edu.cn/2026/0414/c3521a148730/page.htm', summary:'复旦大学系统性推进校企联合实验室建设，2025年以来新建40家校联实验室，较2024年实现翻倍增长，其中4家合同金额超3000万元，覆盖AI、生物医药、新材料等方向', infoDate:'2026-04-14', dataDate:'2026-04-29', source:'复旦大学新闻网', officialUrl:'https://www.fudan.edu.cn/', isNew:true },
+  { id:'today_0429_009', title:'阿里云Data+AI工程师全球挑战赛2026正式启动', type:'竞赛', company:'阿里巴巴', link:'https://weixin.sogou.com/weixin?type=1&query=阿里巴巴集团招聘', summary:'由阿里云主办、NVIDIA协办的高规格工业级Data+AI融合创新赛事，聚焦大模型推理优化与数据工程实践，设置百万级总奖金池，优胜者享阿里云核心团队面试直通资格', infoDate:'2026-04-20', dataDate:'2026-04-29', source:'阿里巴巴集团招聘公众号', officialUrl:'https://campus.alibaba.com/', isNew:true },
+  { id:'today_0429_010', title:'2026 iFLYTEK AI开发者大赛报名开启，覆盖多模态大模型赛道', type:'竞赛', company:'科大讯飞', link:'https://weixin.sogou.com/weixin?type=1&query=科大讯飞招聘', summary:'科大讯飞发起的年度AI开发者大赛，2026年新增多模态大模型应用、语音交互创新等赛道，设置百万级奖金池，汇聚全球开发者参与，获奖者可获讯飞星火团队实习直通资格', infoDate:'2026-04-01', dataDate:'2026-04-29', source:'科大讯飞招聘公众号', officialUrl:'https://iflytek.com/', isNew:true },
+  { id:'today_0429_011', title:'Apple WWDC 2026定档6月9日，首次明确以"AI重大进展"为核心主题', type:'大会', company:'Apple', link:'https://developer.apple.com/cn/wwdc26/', summary:'Apple正式宣布WWDC 2026将于6月8-12日举行（北京时间6月9-13日），首次在预告中明确将聚焦AI技术突破，预计发布升级版Siri与全平台AI功能；采用线上线下结合形式，Apple Park设线下特别活动', infoDate:'2026-03-23', dataDate:'2026-04-29', source:'Apple官网', officialUrl:'https://developer.apple.com/', isNew:true },
+  { id:'today_0429_012', title:'Google I/O 2026将于5月19日开幕，聚焦最新AI突破与Gemini Ultra 2.0', type:'大会', company:'Google', link:'https://io.google/2026/', summary:'Google I/O 2026定于5月19-20日在加州山景城举行，将发布最新AI突破与产品更新，重点展示Gemini Ultra 2.0与Project Astra进展，设线上线下同步直播，面向全球开发者', infoDate:'2026-04-15', dataDate:'2026-04-29', source:'Google官网', officialUrl:'https://careers.google.cn/jobs/', isNew:true },
+  { id:'today_0429_013', title:'拼多多2026届校园招聘持续进行，技术岗位扩招重点聚焦AI推荐与电商搜索', type:'校园招聘', company:'拼多多', link:'https://weixin.sogou.com/weixin?type=1&query=拼多多招聘', summary:'拼多多2026届校园招聘持续推进，Temu全球化业务快速扩张带动技术岗需求增长，AI推荐算法、电商搜索、分布式系统方向重点扩招，SP档技术岗综合薪资居行业前列', infoDate:'2026-04-10', dataDate:'2026-04-29', source:'拼多多招聘公众号', officialUrl:'https://careers.pinduoduo.com/', isNew:true },
+  { id:'today_0429_014', title:'小红书2026届校招开启，AI大模型与推荐算法方向重点招募', type:'校园招聘', company:'小红书', link:'https://weixin.sogou.com/weixin?type=1&query=小红书招聘', summary:'小红书2026届校园招聘正式开放，AI大模型、推荐算法、自然语言处理等技术方向为招募重点，办公地点上海，提供有竞争力的薪资和成长空间', infoDate:'2026-04-05', dataDate:'2026-04-29', source:'小红书招聘公众号', officialUrl:'https://job.xiaohongshu.com/', isNew:true },
+  { id:'today_0429_015', title:'哔哩哔哩2026届校招启动，AI内容生成与视频理解方向持续招募', type:'校园招聘', company:'哔哩哔哩', link:'https://weixin.sogou.com/weixin?type=1&query=哔哩哔哩招聘', summary:'哔哩哔哩2026届校园招聘启动，AI内容生成（AIGC）、视频理解、推荐算法、游戏引擎技术为核心方向，提供B站特色的文化氛围与成长体系，办公地点上海', infoDate:'2026-04-08', dataDate:'2026-04-29', source:'哔哩哔哩招聘公众号', officialUrl:'https://jobs.bilibili.com/', isNew:true },
+  { id:'today_0429_016', title:'蔚来2026届校招全面开放，自动驾驶与智能座舱方向核心扩招', type:'校园招聘', company:'蔚来', link:'https://weixin.sogou.com/weixin?type=1&query=蔚来招聘', summary:'蔚来2026届校园招聘全面启动，自动驾驶算法、智能座舱软件、电池管理系统为核心扩招方向，提供新能源汽车全产业链参与机会，办公地点上海、合肥', infoDate:'2026-04-06', dataDate:'2026-04-29', source:'蔚来招聘公众号', officialUrl:'https://campus.nio.com/', isNew:true },
+  { id:'today_0429_017', title:'DJI大疆2026届校招启动，机器视觉与飞行控制方向全球招募', type:'校园招聘', company:'DJI', link:'https://weixin.sogou.com/weixin?type=1&query=DJI大疆招聘', summary:'大疆2026届校园招聘全球启动，机器视觉、SLAM导航、飞行控制算法、嵌入式系统为核心方向，提供行业领先的薪酬与硬件研发资源，办公地点深圳', infoDate:'2026-04-03', dataDate:'2026-04-29', source:'大疆招聘公众号', officialUrl:'https://we.dji.com/zh-CN/campus', isNew:true },
+  { id:'today_0429_018', title:'滴滴2026届校招开放，AI调度算法与自动驾驶方向持续扩招', type:'校园招聘', company:'滴滴', link:'https://weixin.sogou.com/weixin?type=1&query=滴滴招聘', summary:'滴滴2026届校园招聘开放申请，AI智能调度、自动驾驶、地图与导航为核心技术方向，提供网约车/自动驾驶真实场景数据与算力资源，办公地点北京', infoDate:'2026-04-04', dataDate:'2026-04-29', source:'滴滴招聘公众号', officialUrl:'https://campus.didiglobal.com/', isNew:true },
+  { id:'today_0429_019', title:'联想2026届校招启动，AI PC与边缘计算方向核心招募', type:'校园招聘', company:'联想', link:'https://weixin.sogou.com/weixin?type=1&query=联想招聘', summary:'联想2026届校园招聘全面启动，AI PC大模型端侧部署、边缘计算、混合云架构为核心方向，提供全球化轮岗机会与成长体系', infoDate:'2026-04-07', dataDate:'2026-04-29', source:'联想招聘公众号', officialUrl:'https://campus.lenovo.com.cn/', isNew:true },
+  { id:'today_0429_001', title:'阿里巴巴2026届秋季校招正式启动，AI工程岗扩招40%', type:'校园招聘', company:'阿里巴巴', link:'https://weixin.sogou.com/weixin?type=1&query=阿里巴巴集团招聘', summary:'阿里巴巴集团2026届秋季校园招聘全面开放，AI工程师、算法工程师、系统架构师岗位扩招40%，重点布局通义大模型、达摩院AI实验室与云智能事业群，SP档综合薪资最高82万元/年；应届生可享"阿里味"导师计划与全球轮岗机会，投递截止8月15日', infoDate:'2026-04-29', dataDate:'2026-04-29', source:'阿里巴巴集团招聘公众号', officialUrl:'https://campus.alibaba.com/', isNew:true },
+  { id:'today_0429_002', title:'字节跳动"豆包"大模型团队2026届博士专项开放申请', type:'顶尖人才计划', company:'字节跳动', link:'https://weixin.sogou.com/weixin?type=1&query=字节跳动招聘', summary:'字节跳动豆包大模型研究院正式开放2026届博士专项招募，重点方向涵盖多模态预训练、长文本推理与AI Agent系统，博士SP档综合年薪最高90万元，配备独立科研课题立项权及国际顶会论文激励奖金；面向清华、北大、CMU、MIT等顶校全球招募，报名截止7月31日', infoDate:'2026-04-29', dataDate:'2026-04-29', source:'字节跳动招聘公众号', officialUrl:'https://jobs.bytedance.com/campus', isNew:true },
   { id:'today_0429_003', title:'上海交通大学与商汤科技共建"具身智能联合研究中心"', type:'校企合作', company:'商汤科技', link:'https://www.sensetime.com/cn/news-detail', summary:'上海交通大学人工智能研究院与商汤科技正式签约，联合建立"具身智能联合研究中心"，聚焦机器人操作学习、视觉-语言-动作（VLA）模型与灵巧手控制系统研究；首期投入6000万元，设立12个联合博士培养名额及年均18万元资助，并提供商汤上海园区驻点研究条件', infoDate:'2026-04-29', dataDate:'2026-04-29', source:'上海交通大学官网', officialUrl:'https://www.sensetime.com/cn', isNew:true },
   { id:'today_0429_004', title:'2026年"挑战杯"全国大学生课外学术科技作品竞赛报名截止倒计时', type:'竞赛', company:'共青团中央', link:'https://www.tiaozhanbei.net/', summary:'第十九届"挑战杯"全国大学生课外学术科技作品竞赛报名将于5月20日截止，2026年重点鼓励AI大模型应用、绿色能源技术与生物医疗创新三大方向参赛；腾讯、百度、华为设立企业专项赛题，特等奖获得者可获三大厂联合推荐实习资格及最高50万元创业启动金', infoDate:'2026-04-29', dataDate:'2026-04-29', source:'挑战杯官网', officialUrl:'https://www.tiaozhanbei.net/', isNew:true },
   { id:'today_0429_005', title:'ACL 2026主会场校招专区公布，字节、阿里、华为均设展位', type:'大会', company:'ACL组委会', link:'https://2026.aclweb.org/', summary:'ACL 2026（计算语言学协会年会）将于7月2-7日在美国加利福尼亚州圣迭戈举办，大会官方公布企业校招专区入驻名单，字节跳动、阿里达摩院、华为诺亚方舟、微软亚洲研究院、百度NLP团队均已确认设立校招展位；与会学生可直接投递简历，现场面试通过率约38%，有意参会者可申请企业赞助资助', infoDate:'2026-04-29', dataDate:'2026-04-29', source:'ACL 2026官网', officialUrl:'https://2026.aclweb.org/', isNew:true },
@@ -1106,27 +1369,27 @@ const SEED_DATA = [
   // =============================
   // 今日更新 — 2026-04-18
   // =============================
-  { id:'today_0418_001', title:'美团2026届暑期实习全面启动，AI算法岗位薪资创历史新高', type:'实习招募', company:'美团', link:'https://campus.meituan.com/intern', summary:'美团2026年暑期实习正式开放，AI算法、系统架构、数据科学三大技术方向名额充足，算法实习月薪最高3.2万元，优秀实习生可享免笔试绿色转正通道，截止5月20日', infoDate:'2026-04-18', dataDate:'2026-04-18', source:'美团校园招聘官网', officialUrl:'https://campus.meituan.com', isNew:true },
+  { id:'today_0418_001', title:'美团2026届暑期实习全面启动，AI算法岗位薪资创历史新高', type:'实习招募', company:'美团', link:'https://weixin.sogou.com/weixin?type=1&query=美团招聘', summary:'美团2026年暑期实习正式开放，AI算法、系统架构、数据科学三大技术方向名额充足，算法实习月薪最高3.2万元，优秀实习生可享免笔试绿色转正通道，截止5月20日', infoDate:'2026-04-18', dataDate:'2026-04-18', source:'美团招聘公众号', officialUrl:'https://campus.meituan.com', isNew:true },
   
-  { id:'today_0418_003', title:'小米"雷军奖学金"2026年度评选启动，面向全国高校AI专业', type:'顶尖人才计划', company:'小米', link:'https://hr.xiaomi.com/', summary:'小米集团"雷军奖学金"2026届评选正式启动，面向全国双一流高校AI、芯片、机器人三个专业方向的优秀在校学生，每人最高奖励10万元，并附小米核心岗位实习直通卡，报名截止5月15日', infoDate:'2026-04-18', dataDate:'2026-04-18', source:'小米集团官网', officialUrl:'https://hr.xiaomi.com/campus/recruitment?tabId=3', isNew:true },
+  { id:'today_0418_003', title:'小米"雷军奖学金"2026年度评选启动，面向全国高校AI专业', type:'顶尖人才计划', company:'小米', link:'https://weixin.sogou.com/weixin?type=1&query=小米招聘', summary:'小米集团"雷军奖学金"2026届评选正式启动，面向全国双一流高校AI、芯片、机器人三个专业方向的优秀在校学生，每人最高奖励10万元，并附小米核心岗位实习直通卡，报名截止5月15日', infoDate:'2026-04-18', dataDate:'2026-04-18', source:'小米招聘公众号', officialUrl:'https://hr.xiaomi.com/campus/recruitment?tabId=3', isNew:true },
   { id:'today_0418_004', title:'ACL 2026 Findings录用结果公布，国内科研机构表现亮眼', type:'大会', company:'ACL组委会', link:'https://2026.aclweb.org', summary:'ACL 2026 Findings录用结果正式公布，共录用论文820篇，中国机构投稿录用率同比提升8%，阿里达摩院、华为诺亚方舟、清华大学NLP组跻身全球录用量前十；大会将于7月2-7日在美国加利福尼亚州圣迭戈举办，届时将设NLP招聘专场与校招宣讲会', infoDate:'2026-04-18', dataDate:'2026-04-18', source:'ACL官网', officialUrl:'https://2026.aclweb.org/', isNew:true },
   { id:'today_0418_005', title:'2026年全国大学生数学建模竞赛报名通道正式开放', type:'竞赛', company:'中国工业与应用数学学会', link:'https://www.mcm.edu.cn', summary:'2026年全国大学生数学建模竞赛（CUMCM）正式开放报名，竞赛时间为9月上旬，京东、华为、商汤科技均赞助企业命题，获奖队伍可获赞助企业优先面试资格及万元奖金', infoDate:'2026-04-18', dataDate:'2026-04-18', source:'中国工业与应用数学学会官网', officialUrl:'https://csiam.org.cn/', isNew:true },
 
   // =============================
   // 今日更新 — 2026-04-17
   // =============================
-  { id:'today_0417_001', title:'字节跳动2026年AI Infra方向高潜实习生专项招募', type:'实习招募', company:'字节跳动', link:'https://jobs.bytedance.com/campus', summary:'字节跳动基础架构部面向清华、北大、CMU等顶校招募AI Infra实习生，聚焦大规模训练框架与分布式推理优化，月薪最高2.8万元，优秀者可直转全职', infoDate:'2026-04-17', dataDate:'2026-04-17', source:'字节跳动招聘官网', officialUrl:'https://jobs.bytedance.com/campus', isNew:true },
+  { id:'today_0417_001', title:'字节跳动2026年AI Infra方向高潜实习生专项招募', type:'实习招募', company:'字节跳动', link:'https://weixin.sogou.com/weixin?type=1&query=字节跳动招聘', summary:'字节跳动基础架构部面向清华、北大、CMU等顶校招募AI Infra实习生，聚焦大规模训练框架与分布式推理优化，月薪最高2.8万元，优秀者可直转全职', infoDate:'2026-04-17', dataDate:'2026-04-17', source:'字节跳动招聘公众号', officialUrl:'https://jobs.bytedance.com/campus', isNew:true },
   
   { id:'today_0417_003', title:'ICLR 2026大会开幕（里约热内卢）：国内AI论文数量创历史新高', type:'大会', company:'ICLR基金会', link:'https://iclr.cc/Conferences/2026', summary:'ICLR 2026（第14届国际学习表征大会）于4月23-27日在巴西里约热内卢Riocentro会议中心举办，中国机构论文录用共计620篇，字节跳动研究院以47篇居国内企业首位，阿里达摩院35篇次之，华为诺亚方舟28篇；大会设立大模型可信AIWorkshop，字节获3篇Oral论文', infoDate:'2026-04-17', dataDate:'2026-04-17', source:'ICLR官网', officialUrl:'https://iclr.cc/', isNew:true },
-  { id:'today_0417_004', title:'华为"天才少年"2026年度计划启动招募，首次纳入量子计算专项', type:'顶尖人才计划', company:'华为', link:'https://career.huawei.com/reccampportal/portal5/topminds.html', summary:'华为2026届"天才少年"计划正式启动招募，涵盖AI、芯片、操作系统等方向，今年首次设立量子计算专项赛道，最高年薪201万元+，不限学校与专业', infoDate:'2026-04-17', dataDate:'2026-04-17', source:'华为招聘官网', officialUrl:'https://career.huawei.com/campus', isNew:true },
+  { id:'today_0417_004', title:'华为"天才少年"2026年度计划启动招募，首次纳入量子计算专项', type:'顶尖人才计划', company:'华为', link:'https://weixin.sogou.com/weixin?type=1&query=华为招聘', summary:'华为2026届"天才少年"计划正式启动招募，涵盖AI、芯片、操作系统等方向，今年首次设立量子计算专项赛道，最高年薪201万元+，不限学校与专业', infoDate:'2026-04-17', dataDate:'2026-04-17', source:'华为招聘公众号', officialUrl:'https://career.huawei.com/campus', isNew:true },
   { id:'today_0417_005', title:'第十八届"互联网+"大学生创新创业大赛报名开启', type:'竞赛', company:'教育部', link:'https://cy.ncss.cn', summary:'"互联网+"大赛2026年度正式启动报名，主题为"AI赋能·绿色未来"，阿里、腾讯、华为、字节四大厂均设企业命题赛道，冠军队伍可获百万级创业扶持资金及大厂联合孵化资源', infoDate:'2026-04-17', dataDate:'2026-04-17', source:'教育部官网', isNew:true },
 
   // =============================
   // 今日更新 — 2026-04-16
   // =============================
-  { id:'today_0416_001', title:'腾讯2026届暑期实习全面开放申请', type:'实习招募', company:'腾讯', link:'https://join.qq.com/intern', summary:'腾讯2026年暑期实习正式开放，覆盖技术、产品、数据、运营等方向，优秀者享快速转正通道，月薪最高2.5万元', infoDate:'2026-04-16', dataDate:'2026-04-16', source:'官网', officialUrl:'https://careers.tencent.com', isNew:true },
+  { id:'today_0416_001', title:'腾讯2026届暑期实习全面开放申请', type:'实习招募', company:'腾讯', link:'https://weixin.sogou.com/weixin?type=1&query=腾讯招聘', summary:'腾讯2026年暑期实习正式开放，覆盖技术、产品、数据、运营等方向，优秀者享快速转正通道，月薪最高2.5万元', infoDate:'2026-04-16', dataDate:'2026-04-16', source:'腾讯招聘公众号', officialUrl:'https://careers.tencent.com', isNew:true },
   { id:'today_0416_002', title:'第三届东南大学-华为ICT菁英班顺利开班', type:'校企合作', company:'华为', link:'https://ai.seu.edu.cn/2026/0410/c22645a561747/page.htm', summary:'东南大学计算机科学与工程学院与华为公共开发部联合打造ICT菁英班，面向计算机科学与技术、软件工程、人工智能专业，录取30名优秀学生，2026年第四届报名140余人，同比增长22%', infoDate:'2026-04-10', dataDate:'2026-04-16', source:'东南大学计算机学院官网', officialUrl:'https://career.huawei.com/campus', isNew:true },
-  { id:'today_0416_003', title:'阿里云"通义千问"大模型研发人才专项招募', type:'顶尖人才计划', company:'阿里巴巴', link:'https://campus.alibaba.com/tongyi', summary:'阿里云通义大模型团队启动2026年顶尖人才专项招募，重点方向涵盖多模态推理、代码生成与长文本理解，年薪80-180万，配备独立课题组', infoDate:'2026-04-16', dataDate:'2026-04-16', source:'官网', officialUrl:'https://campus.alibaba.com', isNew:true },
+  { id:'today_0416_003', title:'阿里云"通义千问"大模型研发人才专项招募', type:'顶尖人才计划', company:'阿里巴巴', link:'https://weixin.sogou.com/weixin?type=1&query=阿里巴巴集团招聘', summary:'阿里云通义大模型团队启动2026年顶尖人才专项招募，重点方向涵盖多模态推理、代码生成与长文本理解，年薪80-180万，配备独立课题组', infoDate:'2026-04-16', dataDate:'2026-04-16', source:'阿里巴巴集团招聘公众号', officialUrl:'https://campus.alibaba.com', isNew:true },
   { id:'today_0416_004', title:'CCF-A类会议SIGIR 2026论文征稿截止在即', type:'大会', company:'ACM SIGIR', link:'https://sigir2026.org/', summary:'SIGIR 2026（信息检索领域顶会）将于7月20-24日在澳大利亚墨尔本举办，论文提交截止日期为2026年4月28日，国内百度、阿里、腾讯等团队均在积极备稿，预计投稿量超3000篇', infoDate:'2026-04-16', dataDate:'2026-04-16', source:'SIGIR官网', isNew:true },
   { id:'today_0416_005', title:'第十七届蓝桥杯全国软件和信息技术专业人才大赛决赛公告', type:'竞赛', company:'工业和信息化部教育与考试中心', link:'https://www.lanqiao.cn', summary:'蓝桥杯2026年全国决赛将于5月在北京举办，省赛已有110余万人参赛创历史新高；字节跳动、腾讯、华为均设企业赛道，获奖选手享一键内推实习资格', infoDate:'2026-04-16', dataDate:'2026-04-16', source:'蓝桥杯官网', isNew:true },
 ];
@@ -1756,6 +2019,19 @@ function showToast(msg, duration = 2000) {
 function moveTooltip(e, el) {
   el.style.setProperty('--tt-x', e.clientX + 'px');
   el.style.setProperty('--tt-y', e.clientY + 'px');
+}
+
+// =====================================================
+// WECHAT TAB SWITCH
+// =====================================================
+function switchWechatTab(btn, categoryId) {
+  // 更新按钮状态
+  document.querySelectorAll('.wechat-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // 更新分类显示
+  document.querySelectorAll('.wechat-category').forEach(c => c.classList.remove('active'));
+  const target = document.getElementById(categoryId);
+  if (target) target.classList.add('active');
 }
 
 // =====================================================
